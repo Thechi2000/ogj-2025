@@ -1,6 +1,13 @@
+class_name Player
 extends Area2D
 
 @export var speed = 200 # How fast the player will move (pixels/sec).
+
+@export var left_arm_module: Module
+@export var right_arm_module: Module
+@export var left_leg_module: Module
+@export var right_leg_module: Module
+@export var torso_module: Module
 
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
