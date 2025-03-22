@@ -27,9 +27,9 @@ script = ExtResource("1_khfle")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.163, 0.163)
 sprite_frames = SubResource("SpriteFrames_4raw8")
+offset = Vector2(42.9448, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-9, 4)
 shape = SubResource("CapsuleShape2D_khfle")
 
 [node name="HUD" parent="." instance=ExtResource("3_fn53c")]

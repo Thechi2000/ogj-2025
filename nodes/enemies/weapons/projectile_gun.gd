@@ -24,7 +24,7 @@ func fire(target: Vector2):
 	can_fire = false
 	var projectile = preload("res://nodes/projectile/projectile.tscn").instantiate()
 	projectile.DAMAGE = damage
-	projectile.direction = (target - global_position).normalized() * 1000.0
+	projectile.direction = (target - global_position).normalized() * 500.0
 	projectile.global_position = global_position
 	projectile.look_at(target)
 	projectile.collision_mask = collision_mask

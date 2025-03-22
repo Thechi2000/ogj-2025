@@ -1,50 +1,111 @@
-[gd_scene load_steps=8 format=3 uid="uid://brm1sl5rchlcs"]
+[gd_scene load_steps=9 format=3 uid="uid://brm1sl5rchlcs"]
 
 [ext_resource type="PackedScene" uid="uid://dn14ksjaxt3c0" path="res://nodes/player/player.tscn" id="1_pja0f"]
-[ext_resource type="PackedScene" uid="uid://cflojjvvf07hu" path="res://nodes/hud/HUD.tscn" id="2_eavc5"]
-[ext_resource type="PackedScene" uid="uid://c6drl1wefdi5e" path="res://nodes/projectile/projectile.tscn" id="4_qx7gl"]
+[ext_resource type="PackedScene" uid="uid://8m7ih7i2ayw5" path="res://nodes/enemies/base_enemy.tscn" id="3_xdkkg"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eavc5"]
-distance = -75.0
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_eavc5"]
+vertices = PackedVector2Array(1205, 785, 1953, 910, -1713, 910, -1205, 785, -1713, -914, -1205, -785, 1953, -914, 1205, -785, 915, -495, 915, 495, 845, 70, 845, -70, 470, 345, -915, 495, 330, 345, -330, 345, -470, 345, 555, 70, 470, 55, 470, -55, 470, -345, 555, -70, 330, -55, -555, 70, -555, -70, -470, 55, 330, -345, -330, -55, -330, -345, 330, 55, -330, 55, -470, -55, -470, -345, -845, 70, -915, -495, -845, -70)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(7, 6, 1, 0), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 9, 13, 14), PackedInt32Array(15, 14, 13), PackedInt32Array(16, 15, 13), PackedInt32Array(10, 9, 12, 17), PackedInt32Array(17, 12, 18), PackedInt32Array(19, 20, 21, 17), PackedInt32Array(19, 17, 18, 22), PackedInt32Array(23, 24, 25, 16), PackedInt32Array(26, 22, 27, 28), PackedInt32Array(22, 18, 29, 27), PackedInt32Array(29, 14, 15, 30), PackedInt32Array(27, 29, 30, 31), PackedInt32Array(31, 30, 25, 24), PackedInt32Array(32, 31, 24), PackedInt32Array(23, 16, 13, 33), PackedInt32Array(33, 13, 34, 35), PackedInt32Array(8, 11, 21, 20), PackedInt32Array(34, 8, 20, 26), PackedInt32Array(34, 26, 28), PackedInt32Array(34, 28, 32), PackedInt32Array(35, 34, 32, 24)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1998, -959, 1998, 955, -1758, 955, -1758, -959)])
+agent_radius = 45.0
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xdkkg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eavc5"]
+size = Vector2(2320, 200)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qx7gl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdkkg"]
+size = Vector2(200, 1480)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7d5jq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qx7gl"]
+size = Vector2(200, 1480)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d5jq"]
+size = Vector2(2320, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33h1e"]
+size = Vector2(50, 200)
 
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_pja0f")]
 position = Vector2(2, -3)
 
-[node name="HUD" parent="." instance=ExtResource("2_eavc5")]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-2, 184)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("WorldBoundaryShape2D_eavc5")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-271, -133)
-rotation = 1.5708
-shape = SubResource("WorldBoundaryShape2D_xdkkg")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(26, -358)
-rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_qx7gl")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(501, -123)
-rotation = -1.5708
-shape = SubResource("WorldBoundaryShape2D_7d5jq")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("4_qx7gl")]
-position = Vector2(-248, -15)
-collision_mask = 5
-DAMAGE = 10.0
-direction = Vector2(100, 0)
+[node name="BaseEnemy" parent="." instance=ExtResource("3_xdkkg")]
+position = Vector2(248, -80)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-1, 0)
+navigation_polygon = SubResource("NavigationPolygon_eavc5")
+
+[node name="RoomWalls" type="StaticBody2D" parent="NavigationRegion2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/RoomWalls"]
+position = Vector2(0, -640)
+shape = SubResource("RectangleShape2D_eavc5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NavigationRegion2D/RoomWalls"]
+position = Vector2(1060, 0)
+shape = SubResource("RectangleShape2D_xdkkg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="NavigationRegion2D/RoomWalls"]
+position = Vector2(-1060, 0)
+shape = SubResource("RectangleShape2D_qx7gl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="NavigationRegion2D/RoomWalls"]
+position = Vector2(0, 640)
+shape = SubResource("RectangleShape2D_7d5jq")
+
+[node name="Cover" type="StaticBody2D" parent="NavigationRegion2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Cover"]
+position = Vector2(-400, -200)
+shape = SubResource("RectangleShape2D_33h1e")
+
+[node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D/Cover/CollisionShape2D"]
+polygon = PackedVector2Array(-25, -100, 25, -100, 25, 100, -25, 100)
+uv = PackedVector2Array(0, -40, 8.00002, -40, 8.00002, -32, 0, -32)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NavigationRegion2D/Cover"]
+position = Vector2(400, -200)
+shape = SubResource("RectangleShape2D_33h1e")
+
+[node name="Polygon2D2" type="Polygon2D" parent="NavigationRegion2D/Cover/CollisionShape2D2"]
+polygon = PackedVector2Array(-25, -100, 25, -100, 25, 100, -25, 100)
+uv = PackedVector2Array(0, -40, 8.00002, -40, 8.00002, -32, 0, -32)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="NavigationRegion2D/Cover"]
+position = Vector2(400, 200)
+shape = SubResource("RectangleShape2D_33h1e")
+
+[node name="Polygon2D3" type="Polygon2D" parent="NavigationRegion2D/Cover/CollisionShape2D3"]
+polygon = PackedVector2Array(-25, -100, 25, -100, 25, 100, -25, 100)
+uv = PackedVector2Array(0, -40, 8.00002, -40, 8.00002, -32, 0, -32)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="NavigationRegion2D/Cover"]
+position = Vector2(-400, 200)
+shape = SubResource("RectangleShape2D_33h1e")
+
+[node name="Polygon2D4" type="Polygon2D" parent="NavigationRegion2D/Cover/CollisionShape2D4"]
+polygon = PackedVector2Array(-25, -100, 25, -100, 25, 100, -25, 100)
+uv = PackedVector2Array(0, -40, 8.00002, -40, 8.00002, -32, 0, -32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
+position = Vector2(-700, 0)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_33h1e")
+
+[node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D/StaticBody2D/CollisionShape2D"]
+polygon = PackedVector2Array(-25, -100, 25, -100, 25, 100, -25, 100)
+uv = PackedVector2Array(0, -40, 8.00002, -40, 8.00002, -32, 0, -32)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
+position = Vector2(700, 0)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_33h1e")
+
+[node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D/StaticBody2D/CollisionShape2D2"]
+polygon = PackedVector2Array(-25, -100, 25, -100, 25, 100, -25, 100)
+uv = PackedVector2Array(0, -40, 8.00002, -40, 8.00002, -32, 0, -32)
