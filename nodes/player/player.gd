@@ -38,6 +38,7 @@ enum AllowedActions {
 func _ready():
 	add_module(ModuleSlot.LeftArm, preload("res://nodes/modules/gun/gun.tscn").instantiate())
 	add_module(ModuleSlot.RightArm, preload("res://nodes/modules/missile_launcher/missile_launcher.tscn").instantiate())
+	add_module(ModuleSlot.LeftLeg, preload("res://nodes/modules/dash/dash.tscn").instantiate())
 
 func add_module(slot: ModuleSlot, module: Module):
 	modules[slot] = module
@@ -51,9 +52,8 @@ func remove_module(slot: ModuleSlot):
 		modules.erase(slot)
 
 func _process(delta):
-	velocity = Vector2.ZERO # The player's movement vector.
-
 	if allowed & AllowedActions.Movement != 0:
+		velocity = Vector2.ZERO # The player's movement vector.
 		if Input.is_action_pressed("move_right"):
 			velocity.x += 1
 			$AnimatedSprite2D.flip_h = false
@@ -65,14 +65,14 @@ func _process(delta):
 		if Input.is_action_pressed("move_up"):
 			velocity.y -= 1
 
+		if velocity.length() > 0:
+			velocity = velocity.normalized() * speed
+
 	try_use("use_left_arm_module", ModuleSlot.LeftArm, AllowedActions.ModuleLeftArm)
 	try_use("use_right_arm_module", ModuleSlot.RightArm, AllowedActions.ModuleRightArm)
 	try_use("use_left_leg_module", ModuleSlot.LeftLeg, AllowedActions.ModuleLeftLeg)
 	try_use("use_right_leg_module", ModuleSlot.RightLeg, AllowedActions.ModuleRightLeg)
 	try_use("use_body_module", ModuleSlot.Body, AllowedActions.ModuleBody)
-
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
 
 	move_and_slide()
 
