@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://8m7ih7i2ayw5"]
+[gd_scene load_steps=5 format=3 uid="uid://8m7ih7i2ayw5"]
 
 [ext_resource type="Script" uid="uid://cxr22p2x5r38s" path="res://nodes/enemies/base_enemy.gd" id="1_ayf16"]
 [ext_resource type="Texture2D" uid="uid://c7oxaepmusdrm" path="res://arts/tests.png" id="2_mdrqj"]
+[ext_resource type="PackedScene" uid="uid://7e08jf7bx8ky" path="res://nodes/enemies/weapons/projectile_gun.tscn" id="3_mdrqj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vvoh"]
 radius = 9.0
@@ -23,3 +24,5 @@ offset = Vector2(45.8333, -4.16667)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 151.4
 debug_enabled = true
+
+[node name="ProjectileGun" parent="." instance=ExtResource("3_mdrqj")]

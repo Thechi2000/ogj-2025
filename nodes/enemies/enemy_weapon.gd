@@ -1,5 +1,5 @@
 class_name EnemyWeapon
-extends Node
+extends Node2D
 
 func is_ready() -> bool:
 	return false
