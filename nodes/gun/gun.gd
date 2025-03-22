@@ -1,9 +1,12 @@
-extends Module
+extends CooldownModule
 
 @export var DAMAGE := 10.0
 @export var FIRING_DIR := Vector2.RIGHT*100.0
 
-func use():
+func cooldown():
+	return 0.2
+
+func _use():
 	var new_projectile = preload("res://nodes/projectile/projectile.tscn").instantiate()
 	new_projectile.DAMAGE = DAMAGE
 	new_projectile.direction = FIRING_DIR.rotated(self.rotation)
