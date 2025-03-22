@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv230c13jxdni"]
+
+[ext_resource type="Script" uid="uid://cvmmptti0av2l" path="res://nodes/missile/missile.gd" id="1_53plf"]
+[ext_resource type="Shader" uid="uid://cl24ogsgck4xu" path="res://glow.tres" id="1_pccvk"]
+[ext_resource type="Texture2D" uid="uid://byr10ep6t4e1f" path="res://icon.svg" id="2_53plf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dm35c"]
+radius = 5.0
+height = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h7864"]
+shader = ExtResource("1_pccvk")
+shader_parameter/Color = Color(1, 0.466887, 0.640066, 1)
+shader_parameter/Vector2Parameter = Vector2(20, 10)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_53plf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dm35c")
+
+[node name="Texture" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_h7864")
+rotation = 1.5708
+texture = ExtResource("2_53plf")

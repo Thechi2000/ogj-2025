@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://brm1sl5rchlcs"]
+[gd_scene load_steps=8 format=3 uid="uid://brm1sl5rchlcs"]
 
 [ext_resource type="PackedScene" uid="uid://dn14ksjaxt3c0" path="res://nodes/player/player.tscn" id="1_pja0f"]
 [ext_resource type="PackedScene" uid="uid://cflojjvvf07hu" path="res://nodes/hud/HUD.tscn" id="2_eavc5"]
+[ext_resource type="PackedScene" uid="uid://bm2klape03oso" path="res://nodes/explosion/explosion.tscn" id="3_xdkkg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eavc5"]
 distance = -75.0
@@ -42,3 +43,6 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_7d5jq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("3_xdkkg")]
+position = Vector2(187, -70)
