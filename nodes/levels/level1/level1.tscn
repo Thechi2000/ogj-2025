@@ -15,12 +15,12 @@ distance = -75.0
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_pja0f")]
-position = Vector2(481, 260)
+position = Vector2(2, -3)
 
 [node name="HUD" parent="." instance=ExtResource("2_eavc5")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(477, 447)
+position = Vector2(-2, 184)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_eavc5")
@@ -39,3 +39,5 @@ shape = SubResource("WorldBoundaryShape2D_qx7gl")
 position = Vector2(501, -123)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_7d5jq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
