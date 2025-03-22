@@ -14,8 +14,9 @@ distance = -75.0
 
 [node name="Level1" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_pja0f")]
+[node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("1_pja0f")]
 position = Vector2(2, -3)
+hud = NodePath("../HUD")
 
 [node name="HUD" parent="." instance=ExtResource("2_eavc5")]
 

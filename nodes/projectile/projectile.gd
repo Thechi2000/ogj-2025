@@ -1,8 +1,8 @@
-extends Area2D
+class_name Projectile
+extends CharacterBody2D
 
 @export var DAMAGE : float = 0.0
-
-var direction := Vector2()
+@export var direction := Vector2()
 
 func _physics_process(delta: float) -> void:
 	self.position += direction*delta

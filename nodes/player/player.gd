@@ -51,11 +51,17 @@ func _process(delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		
-	move_and_slide()
+	var collision = move_and_collide(velocity*delta)
+	if collision and "DAMAGE" in collision.get_collider():
+		var collider = collision.get_collider()
+		collider.queue_free()
+		update_health(-collider.DAMAGE)
+
+
 	$AnimatedSprite2D.flip_h = velocity.x < 0
 
 func try_use(input, slot):
-	if Input.is_action_pressed(input) and modules.has(slot):
+	if Input.is_action_just_pressed(input) and modules.has(slot):
 		var mod: Module = modules[slot]
 		mod.look_at(get_global_mouse_position())
 		mod.use()

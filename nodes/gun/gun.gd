@@ -9,4 +9,5 @@ func use():
 	new_projectile.direction = FIRING_DIR.rotated(self.rotation)
 	new_projectile.rotation = self.global_rotation
 	new_projectile.position = self.global_position
+	new_projectile.set_collision_layer_value(2, true)
 	get_tree().current_scene.add_child(new_projectile)
