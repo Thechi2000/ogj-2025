@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c6drl1wefdi5e"]
 
 [ext_resource type="Script" uid="uid://drih7ucwr05ig" path="res://nodes/projectile/projectile.gd" id="1_mc7ak"]
-[ext_resource type="Shader" uid="uid://couoff33d1os4" path="res://glow.tres" id="1_rjlbk"]
+[ext_resource type="Shader" uid="uid://cl24ogsgck4xu" path="res://glow.tres" id="1_rjlbk"]
 [ext_resource type="Texture2D" uid="uid://byr10ep6t4e1f" path="res://icon.svg" id="2_mc7ak"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7pr4e"]
@@ -10,7 +10,7 @@ height = 20.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6nyi7"]
 shader = ExtResource("1_rjlbk")
-shader_parameter/Color = Color(0.744338, 0.680838, 0.105795, 1)
+shader_parameter/Color = Color(0.561508, 0.644271, 1, 1)
 shader_parameter/Vector2Parameter = Vector2(20, 10)
 
 [node name="Projectile" type="Area2D"]
