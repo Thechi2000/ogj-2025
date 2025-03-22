@@ -53,6 +53,7 @@ position = Vector2(32, 0)
 shape = SubResource("CapsuleShape2D_6i8tx")
 
 [node name="ActiveTimer" type="Timer" parent="."]
+wait_time = 0.75
 one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -60,5 +61,10 @@ position = Vector2(32.9375, 6.27744)
 scale = Vector2(0.369774, 0.369773)
 sprite_frames = SubResource("SpriteFrames_xdiau")
 
+[node name="WindupTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="ActiveTimer" to="." method="_on_active_timer_timeout"]
+[connection signal="timeout" from="WindupTimer" to="." method="_on_windup_timer_timeout"]
