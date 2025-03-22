@@ -24,9 +24,20 @@ enum ModuleSlot {
 	Body
 }
 
+enum AllowedActions {
+	ModuleLeftArm = 1 << 0,
+	ModuleRightArm = 1 << 1,
+	ModuleLeftLeg = 1 << 2,
+	ModuleRightLeg = 1 << 3,
+	ModuleBody = 1 << 4,
+	Movement = 1 << 5
+}
+
+@export_flags("LeftArm","RightArm","LeftLeg","RightLeg","Body","Movement") var allowed = -1
+
 func _ready():
 	add_module(ModuleSlot.LeftArm, preload("res://nodes/modules/gun/gun.tscn").instantiate())
-	add_module(ModuleSlot.RightArm, preload("res://nodes/modules/sword/sword.tscn").instantiate())
+	add_module(ModuleSlot.RightArm, preload("res://nodes/modules/missile_launcher/missile_launcher.tscn").instantiate())
 
 func add_module(slot: ModuleSlot, module: Module):
 	modules[slot] = module
@@ -41,30 +52,32 @@ func remove_module(slot: ModuleSlot):
 
 func _process(delta):
 	velocity = Vector2.ZERO # The player's movement vector.
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-		$AnimatedSprite2D.flip_h = false
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-		$AnimatedSprite2D.flip_h = true
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
 
-	try_use("use_left_arm_module", ModuleSlot.LeftArm)
-	try_use("use_right_arm_module", ModuleSlot.RightArm)
-	try_use("use_left_leg_module", ModuleSlot.LeftLeg)
-	try_use("use_right_leg_module", ModuleSlot.RightLeg)
-	try_use("use_body_module", ModuleSlot.Body)
+	if allowed & AllowedActions.Movement != 0:
+		if Input.is_action_pressed("move_right"):
+			velocity.x += 1
+			$AnimatedSprite2D.flip_h = false
+		if Input.is_action_pressed("move_left"):
+			velocity.x -= 1
+			$AnimatedSprite2D.flip_h = true
+		if Input.is_action_pressed("move_down"):
+			velocity.y += 1
+		if Input.is_action_pressed("move_up"):
+			velocity.y -= 1
+
+	try_use("use_left_arm_module", ModuleSlot.LeftArm, AllowedActions.ModuleLeftArm)
+	try_use("use_right_arm_module", ModuleSlot.RightArm, AllowedActions.ModuleRightArm)
+	try_use("use_left_leg_module", ModuleSlot.LeftLeg, AllowedActions.ModuleLeftLeg)
+	try_use("use_right_leg_module", ModuleSlot.RightLeg, AllowedActions.ModuleRightLeg)
+	try_use("use_body_module", ModuleSlot.Body, AllowedActions.ModuleBody)
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 
 	move_and_slide()
 
-func try_use(input, slot):
-	if Input.is_action_pressed(input) and modules.has(slot):
+func try_use(input, slot, flag):
+	if Input.is_action_pressed(input) and modules.has(slot) && allowed & flag != 0:
 		var mod: Module = modules[slot]
 		mod.look_at(get_global_mouse_position())
 		mod.use()
