@@ -1,5 +1,5 @@
 class_name Module
-extends Node
+extends Node2D
 
 func bind(_player: Player):
 	pass

@@ -17,8 +17,13 @@ enum ModuleSlot {
 	Body
 }
 
+func _ready():
+	add_module(ModuleSlot.LeftArm, 	preload("res://nodes/gun/gun.tscn").instantiate())
+	
+
 func add_module(slot: ModuleSlot, module: Module):
 	modules[slot] = module
+	add_child(module)
 	module.bind(self)
 
 func remove_module(slot: ModuleSlot):
@@ -37,22 +42,24 @@ func _process(delta):
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 
-	if Input.is_action_pressed("use_left_arm_module") and modules.has(ModuleSlot.LeftArm):
-		modules[ModuleSlot.LeftArm].use()
-	if Input.is_action_pressed("use_right_arm_module") and modules.has(ModuleSlot.RightArm):
-		modules[ModuleSlot.RightArm].use()
-	if Input.is_action_pressed("use_left_leg_module") and modules.has(ModuleSlot.LeftLeg):
-		modules[ModuleSlot.LeftLeg].use()
-	if Input.is_action_pressed("use_right_leg_module") and modules.has(ModuleSlot.RightLeg):
-		modules[ModuleSlot.RightLeg].use()
-	if Input.is_action_pressed("use_body_module") and modules.has(ModuleSlot.Body):
-		modules[ModuleSlot.Body].use()
+	try_use("use_left_arm_module", ModuleSlot.LeftArm)
+	try_use("use_right_arm_module", ModuleSlot.RightArm)
+	try_use("use_left_leg_module", ModuleSlot.LeftLeg)
+	try_use("use_right_leg_module", ModuleSlot.RightLeg)
+	try_use("use_body_module", ModuleSlot.Body)
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		
 	move_and_slide()
 	$AnimatedSprite2D.flip_h = velocity.x < 0
+
+func try_use(input, slot):
+	if Input.is_action_pressed(input) and modules.has(slot):
+		var mod: Module = modules[slot]
+		mod.look_at(get_global_mouse_position())
+		mod.use()
+	
 
 func update_health(diff):
 	health += diff
