@@ -74,6 +74,8 @@ use_body_module={
 
 [layer_names]
 
+2d_physics/layer_1="Misc"
 2d_physics/layer_2="Damages Enemies"
 2d_physics/layer_3="Damages Players"
 2d_physics/layer_4="Enemies"
+2d_physics/layer_5="Player"

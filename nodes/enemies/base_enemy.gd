@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var max_health := 40.0
+var health := max_health
+
 @export var movement_speed := 100.0
 
 @onready var navigation_agent := $NavigationAgent2D
@@ -32,3 +35,8 @@ func _physics_process(delta):
 
 	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
 	move_and_slide()
+
+func update_health(diff):
+	health += diff
+	if health <= 0:
+		queue_free()
