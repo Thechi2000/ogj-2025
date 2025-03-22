@@ -2,8 +2,12 @@ class_name Player
 extends Area2D
 
 @export var speed = 200 # How fast the player will move (pixels/sec).
+@export var hud: HUD
 
 var modules: Dictionary
+
+var max_health = 100
+var health = 100
 
 enum ModuleSlot {
 	LeftArm,
@@ -49,3 +53,7 @@ func _process(delta):
 		
 	position += velocity * delta
 	$AnimatedSprite2D.flip_h = velocity.x < 0
+
+func update_health(diff):
+	health += diff
+	hud.set_current_health(health)
