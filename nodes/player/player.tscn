@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bx7gjrlqel2pw" path="res://nodes/player/player.gd" id="1_khfle"]
 [ext_resource type="Texture2D" uid="uid://c7oxaepmusdrm" path="res://arts/tests.png" id="2_fn53c"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_b0kkn"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_4raw8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -14,17 +14,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b0kkn"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khfle"]
 radius = 22.0
 height = 80.0
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_khfle")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.163, 0.163)
-sprite_frames = SubResource("SpriteFrames_b0kkn")
+sprite_frames = SubResource("SpriteFrames_4raw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9, 4)
-shape = SubResource("CapsuleShape2D_b0kkn")
+shape = SubResource("CapsuleShape2D_khfle")
