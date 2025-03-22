@@ -5,4 +5,5 @@ extends CharacterBody2D
 @export var direction := Vector2()
 
 func _physics_process(delta: float) -> void:
-	self.position += direction*delta
+	if self.move_and_collide(direction * delta):
+		queue_free()
