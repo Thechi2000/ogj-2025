@@ -18,8 +18,8 @@ enum ModuleSlot {
 }
 
 func _ready():
-	add_module(ModuleSlot.LeftArm, preload("res://nodes/gun/gun.tscn").instantiate())
-	add_module(ModuleSlot.RightArm, preload("res://nodes/missile_launcher/missile_launcher.tscn").instantiate())
+	add_module(ModuleSlot.LeftArm, preload("res://nodes/modules/gun/gun.tscn").instantiate())
+	add_module(ModuleSlot.RightArm, preload("res://nodes/modules/missile_launcher/missile_launcher.tscn").instantiate())
 	
 
 func add_module(slot: ModuleSlot, module: Module):

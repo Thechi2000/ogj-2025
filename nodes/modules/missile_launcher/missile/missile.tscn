@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bv230c13jxdni"]
 
-[ext_resource type="Script" uid="uid://cvmmptti0av2l" path="res://nodes/missile/missile.gd" id="1_53plf"]
+[ext_resource type="Script" uid="uid://cvmmptti0av2l" path="res://nodes/modules/missile_launcher/missile/missile.gd" id="1_53plf"]
 [ext_resource type="Shader" uid="uid://cl24ogsgck4xu" path="res://glow.tres" id="1_pccvk"]
 [ext_resource type="Texture2D" uid="uid://byr10ep6t4e1f" path="res://icon.svg" id="2_53plf"]
 

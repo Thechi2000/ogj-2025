@@ -7,7 +7,7 @@ func cooldown():
 	return 1.5
 
 func _use():
-	var new_projectile = preload("res://nodes/missile/missile.tscn").instantiate()
+	var new_projectile = preload("res://nodes/modules/missile_launcher/missile/missile.tscn").instantiate()
 	new_projectile.direction = FIRING_DIR.rotated(self.rotation)
 	new_projectile.rotation = self.global_rotation
 	new_projectile.position = self.global_position
