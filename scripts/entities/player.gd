@@ -33,6 +33,17 @@ func _process(delta):
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 
+	if Input.is_action_pressed("use_left_arm_module") and modules.has(ModuleSlot.LeftArm):
+		modules[ModuleSlot.LeftArm].use()
+	if Input.is_action_pressed("use_right_arm_module") and modules.has(ModuleSlot.RightArm):
+		modules[ModuleSlot.RightArm].use()
+	if Input.is_action_pressed("use_left_leg_module") and modules.has(ModuleSlot.LeftLeg):
+		modules[ModuleSlot.LeftLeg].use()
+	if Input.is_action_pressed("use_right_leg_module") and modules.has(ModuleSlot.RightLeg):
+		modules[ModuleSlot.RightLeg].use()
+	if Input.is_action_pressed("use_body_module") and modules.has(ModuleSlot.Body):
+		modules[ModuleSlot.Body].use()
+
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		
