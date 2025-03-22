@@ -22,9 +22,11 @@ height = 80.0
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 16
 collision_mask = 5
+motion_mode = 1
 script = ExtResource("1_khfle")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(0.163, 0.163)
 sprite_frames = SubResource("SpriteFrames_4raw8")
 offset = Vector2(42.9448, 0)
@@ -33,3 +35,18 @@ offset = Vector2(42.9448, 0)
 shape = SubResource("CapsuleShape2D_khfle")
 
 [node name="HUD" parent="." instance=ExtResource("3_fn53c")]
+
+[node name="LeftLeg" type="Marker2D" parent="."]
+position = Vector2(4, 7)
+
+[node name="RightLeg" type="Marker2D" parent="."]
+position = Vector2(-4, 7)
+
+[node name="LeftArm" type="Marker2D" parent="."]
+position = Vector2(7, -18)
+
+[node name="RightArm" type="Marker2D" parent="."]
+position = Vector2(-14, -14)
+
+[node name="Body" type="Marker2D" parent="."]
+position = Vector2(0, -9)

@@ -1,17 +1,17 @@
 class_name Module
 extends Node2D
 
-func bind(_player: Player):
-	pass
+@export var leftSprite : Node2D
+@export var rightSprite : Node2D
+
+func bind(_player: Player, is_left_module: bool):
+	if leftSprite:
+		leftSprite.visible = is_left_module
+	if rightSprite:
+		rightSprite.visible = not is_left_module
 
 func unbind():
 	pass
 
-func get_sprite_frames() -> SpriteFrames:
-	return null
-	
-func get_sprite_attach_point() -> Vector2:
-	return Vector2.ZERO
-	
 func use():
 	pass

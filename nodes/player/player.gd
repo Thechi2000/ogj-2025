@@ -4,7 +4,14 @@ extends CharacterBody2D
 @export var speed = 200 # How fast the player will move (pixels/sec).
 @onready var hud: HUD = $HUD
 
-var modules: Dictionary
+var modules: Dictionary[ModuleSlot, Module]
+@onready var module_positions: Dictionary[ModuleSlot, Node2D] = {
+	ModuleSlot.LeftArm: $LeftArm,
+	ModuleSlot.RightArm: $RightArm,
+	ModuleSlot.LeftLeg: $LeftLeg,
+	ModuleSlot.RightLeg: $RightLeg,
+	ModuleSlot.Body: $Body,
+}
 
 var max_health = 100
 var health = 100
@@ -23,12 +30,13 @@ func _ready():
 
 func add_module(slot: ModuleSlot, module: Module):
 	modules[slot] = module
-	add_child(module)
-	module.bind(self)
+	module_positions[slot].add_child(module)
+	module.bind(self, slot == ModuleSlot.LeftArm or slot == ModuleSlot.LeftLeg)
 
 func remove_module(slot: ModuleSlot):
 	if modules.has(slot):
 		modules[slot].unbind()
+		modules[slot].queue_free()
 		modules.erase(slot)
 
 func _process(delta):

@@ -8,12 +8,12 @@ func cooldown():
 	return 1
 
 func _ready():
-	hide()
+	$AnimatedSprite2D.hide()
 
 func _use():
+	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play()
 	$WindupTimer.start()
-	show()
 
 func _on_body_entered(body: Node2D) -> void:
 	if _active and body.has_method("update_health"):
@@ -21,7 +21,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_active_timer_timeout() -> void:
 	$AnimatedSprite2D.stop()
-	hide()
+	$AnimatedSprite2D.hide()
 	_active = false
 
 func _on_windup_timer_timeout() -> void:
