@@ -7,6 +7,10 @@ extends CharacterBody2D
 func _on_hit():
 	queue_free()
 
+func damage(node: Node2D) -> float:
+	queue_free()
+	return DAMAGE
+
 func _physics_process(delta: float) -> void:
 	if self.move_and_collide(direction * delta):
 		_on_hit()

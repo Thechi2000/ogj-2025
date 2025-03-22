@@ -52,11 +52,10 @@ func _process(delta):
 		velocity = velocity.normalized() * speed
 		
 	var collision = move_and_collide(velocity*delta)
-	if collision and "DAMAGE" in collision.get_collider():
-		var collider = collision.get_collider()
-		collider.queue_free()
-		update_health(-collider.DAMAGE)
-
+	if collision and collision.get_collider().has_method("damage"):
+		var damages = collision.get_collider().damage(self)
+		print(damages)
+		update_health(-damages)
 
 	$AnimatedSprite2D.flip_h = velocity.x < 0
 
