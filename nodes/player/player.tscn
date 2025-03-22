@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn14ksjaxt3c0"]
+[gd_scene load_steps=6 format=3 uid="uid://dn14ksjaxt3c0"]
 
 [ext_resource type="Script" uid="uid://bx7gjrlqel2pw" path="res://nodes/player/player.gd" id="1_khfle"]
 [ext_resource type="Texture2D" uid="uid://c7oxaepmusdrm" path="res://arts/tests.png" id="2_fn53c"]
+[ext_resource type="PackedScene" uid="uid://cflojjvvf07hu" path="res://nodes/hud/HUD.tscn" id="3_fn53c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4raw8"]
 animations = [{
@@ -30,3 +31,5 @@ sprite_frames = SubResource("SpriteFrames_4raw8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9, 4)
 shape = SubResource("CapsuleShape2D_khfle")
+
+[node name="HUD" parent="." instance=ExtResource("3_fn53c")]

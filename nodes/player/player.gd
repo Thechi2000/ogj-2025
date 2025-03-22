@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export var speed = 200 # How fast the player will move (pixels/sec).
-@export var hud: HUD
+@onready var hud: HUD = $HUD
 
 var modules: Dictionary
 

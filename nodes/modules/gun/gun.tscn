@@ -4,4 +4,5 @@
 
 [node name="Gun" type="Node2D"]
 script = ExtResource("1_opwvb")
+collision_layer = 2
 collision_mask = 8

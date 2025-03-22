@@ -3,6 +3,8 @@ extends EnemyWeapon
 @onready var raycast := $RayCast2D
 @export var cooldown := 1.0
 @export var damage := 10.0
+@export_flags_2d_physics var collision_layer: int
+@export_flags_2d_physics var collision_mask: int
 
 var can_fire := true
 
@@ -25,5 +27,7 @@ func fire(target: Vector2):
 	projectile.direction = (target - global_position).normalized() * 1000.0
 	projectile.global_position = global_position
 	projectile.look_at(target)
+	projectile.collision_mask = collision_mask
+	projectile.collision_layer = collision_layer
 	get_tree().current_scene.add_child(projectile)
 	get_tree().create_timer(cooldown).timeout.connect(func(): can_fire = true)
