@@ -51,7 +51,7 @@ func _process(delta):
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		
+
 	var collision = move_and_collide(velocity*delta)
 	if collision and collision.get_collider().has_method("damage"):
 		var damages = collision.get_collider().damage(self)
@@ -65,7 +65,6 @@ func try_use(input, slot):
 		var mod: Module = modules[slot]
 		mod.look_at(get_global_mouse_position())
 		mod.use()
-	
 
 func update_health(diff):
 	health += diff

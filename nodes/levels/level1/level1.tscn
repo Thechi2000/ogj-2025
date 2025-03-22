@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://brm1sl5rchlcs"]
+[gd_scene load_steps=8 format=3 uid="uid://brm1sl5rchlcs"]
 
 [ext_resource type="PackedScene" uid="uid://dn14ksjaxt3c0" path="res://nodes/player/player.tscn" id="1_pja0f"]
 [ext_resource type="PackedScene" uid="uid://cflojjvvf07hu" path="res://nodes/hud/HUD.tscn" id="2_eavc5"]
+[ext_resource type="PackedScene" uid="uid://c6drl1wefdi5e" path="res://nodes/projectile/projectile.tscn" id="4_qx7gl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eavc5"]
 distance = -75.0
@@ -42,3 +43,9 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_7d5jq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_qx7gl")]
+position = Vector2(-248, -15)
+collision_mask = 5
+DAMAGE = 10.0
+direction = Vector2(100, 0)
