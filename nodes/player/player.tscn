@@ -18,7 +18,7 @@ animations = [{
 radius = 22.0
 height = 80.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_khfle")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

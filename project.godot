@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+Enemy="Is an enemy and must be eliminated for the room to be completed"
+Player="Is the player"
+
 [input]
 
 move_right={
