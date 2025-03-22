@@ -4,6 +4,9 @@ extends Node
 func bind(_player: Player):
 	pass
 
+func unbind():
+	pass
+
 func get_sprite_frames() -> SpriteFrames:
 	return null
 	

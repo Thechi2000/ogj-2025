@@ -3,11 +3,24 @@ extends Area2D
 
 @export var speed = 200 # How fast the player will move (pixels/sec).
 
-@export var left_arm_module: Module
-@export var right_arm_module: Module
-@export var left_leg_module: Module
-@export var right_leg_module: Module
-@export var torso_module: Module
+var modules: Dictionary
+
+enum ModuleSlot {
+	LeftArm,
+	RightArm,
+	LeftLeg,
+	RightLeg,
+	Body
+}
+
+func add_module(slot: ModuleSlot, module: Module):
+	modules[slot] = module
+	module.bind(self)
+
+func remove_module(slot: ModuleSlot):
+	if modules.has(slot):
+		modules[slot].unbind()
+		modules.erase(slot)
 
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
