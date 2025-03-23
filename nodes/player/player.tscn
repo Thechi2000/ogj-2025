@@ -37,16 +37,16 @@ shape = SubResource("CapsuleShape2D_khfle")
 [node name="HUD" parent="." instance=ExtResource("3_fn53c")]
 
 [node name="LeftLeg" type="Marker2D" parent="."]
-position = Vector2(4, 7)
+position = Vector2(6, 7)
 
 [node name="RightLeg" type="Marker2D" parent="."]
-position = Vector2(-4, 7)
+position = Vector2(-8, 7)
 
 [node name="LeftArm" type="Marker2D" parent="."]
 position = Vector2(7, -18)
 
 [node name="RightArm" type="Marker2D" parent="."]
-position = Vector2(-14, -14)
+position = Vector2(-14, -16)
 
 [node name="Body" type="Marker2D" parent="."]
 position = Vector2(0, -9)
