@@ -1,24 +1,27 @@
 [gd_scene load_steps=4 format=3 uid="uid://bc1t0mbemebpa"]
 
 [ext_resource type="Script" uid="uid://bv1l3leig3xku" path="res://nodes/modules/gun/gun.gd" id="1_opwvb"]
-[ext_resource type="Texture2D" uid="uid://cvodvswba1gvo" path="res://arts/tests/player_pixel/left_arm.png" id="2_pfpc1"]
-[ext_resource type="Texture2D" uid="uid://c7q2w3f30bf36" path="res://arts/tests/player_pixel/right_arm.png" id="3_4m6ve"]
+[ext_resource type="Texture2D" uid="uid://8263dyme0i1k" path="res://arts/player/l arm.png" id="4_4m6ve"]
+[ext_resource type="Texture2D" uid="uid://chfda6w6t7pxk" path="res://arts/player/r_arm.png" id="5_dw2hp"]
 
 [node name="Gun" type="Node2D" node_paths=PackedStringArray("leftSprite", "rightSprite")]
 script = ExtResource("1_opwvb")
 collision_layer = 2
 collision_mask = 9
-leftSprite = NodePath("LeftArm")
-rightSprite = NodePath("RightArm")
+leftSprite = NodePath("LArm")
+rightSprite = NodePath("RArm")
 
-[node name="LeftArm" type="Sprite2D" parent="."]
-visible = false
-texture_filter = 1
-texture = ExtResource("2_pfpc1")
-offset = Vector2(5, 12)
+[node name="LArm" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-1, 0)
+rotation = -1.25659
+scale = Vector2(0.0979236, 0.0979236)
+texture = ExtResource("4_4m6ve")
+offset = Vector2(44, 101)
 
-[node name="RightArm" type="Sprite2D" parent="."]
-visible = false
-texture_filter = 1
-texture = ExtResource("3_4m6ve")
-offset = Vector2(-1, 10)
+[node name="RArm" type="Sprite2D" parent="."]
+z_index = 1
+rotation = -1.7185
+scale = Vector2(0.0994213, 0.0994213)
+texture = ExtResource("5_dw2hp")
+offset = Vector2(-4, 95)

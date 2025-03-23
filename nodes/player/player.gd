@@ -39,6 +39,8 @@ func _ready():
 	add_module(ModuleSlot.LeftArm, preload("res://nodes/modules/gun/gun.tscn").instantiate())
 	add_module(ModuleSlot.RightArm, preload("res://nodes/modules/missile_launcher/missile_launcher.tscn").instantiate())
 	add_module(ModuleSlot.LeftLeg, preload("res://nodes/modules/dash/dash.tscn").instantiate())
+	add_module(ModuleSlot.RightLeg, preload("res://nodes/modules/dash/dash.tscn").instantiate())
+	add_module(ModuleSlot.Body, preload("res://nodes/modules/base_torso/base_torso.tscn").instantiate())
 
 func add_module(slot: ModuleSlot, module: Module):
 	modules[slot] = module
@@ -67,6 +69,11 @@ func _process(_delta):
 
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * speed
+			
+	if modules.has(ModuleSlot.LeftArm):
+		modules[ModuleSlot.LeftArm].look_at(get_global_mouse_position())
+	if modules.has(ModuleSlot.RightArm):
+		modules[ModuleSlot.RightArm].look_at(get_global_mouse_position())
 
 	try_use("use_left_arm_module", ModuleSlot.LeftArm, AllowedActions.ModuleLeftArm)
 	try_use("use_right_arm_module", ModuleSlot.RightArm, AllowedActions.ModuleRightArm)
@@ -79,7 +86,6 @@ func _process(_delta):
 func try_use(input, slot, flag):
 	if Input.is_action_pressed(input) and modules.has(slot) && allowed & flag != 0:
 		var mod: Module = modules[slot]
-		mod.look_at(get_global_mouse_position())
 		mod.use()
 
 func update_health(diff):
