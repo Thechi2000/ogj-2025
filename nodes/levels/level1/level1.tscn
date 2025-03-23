@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://brm1sl5rchlcs"]
+[gd_scene load_steps=10 format=4 uid="uid://brm1sl5rchlcs"]
 
 [ext_resource type="PackedScene" uid="uid://dn14ksjaxt3c0" path="res://nodes/player/player.tscn" id="1_pja0f"]
+[ext_resource type="TileSet" uid="uid://dxsqnhdb1ilum" path="res://nodes/tiles/tileset.tres" id="3_qx7gl"]
 [ext_resource type="PackedScene" uid="uid://8m7ih7i2ayw5" path="res://nodes/enemies/base_enemy.tscn" id="3_xdkkg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eavc5"]
@@ -118,3 +119,7 @@ position = Vector2(642, 221)
 
 [node name="BaseEnemy4" parent="." instance=ExtResource("3_xdkkg")]
 position = Vector2(722, -193)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AADl/wYAAAACAAIAAADl/wcAAAACAAMAAADl/wgAAAACAAQAAADl/wkAAAACAAUAAADl/woAAAACAAYAAADl/wsAAAACAAcAAADm/wYAAAADAAIAAADm/wcAAAADAAMAAADm/wgAAAADAAQAAADm/wkAAAADAAUAAADm/woAAAADAAYAAADm/wsAAAADAAcAAADn/wYAAAAEAAIAAADn/wcAAAAEAAMAAADn/wgAAAAEAAQAAADn/wkAAAAEAAUAAADn/woAAAAEAAYAAADn/wsAAAAEAAcAAADl/wwAAAAHAAIAAADl/w0AAAAHAAMAAADl/w4AAAAHAAQAAADl/w8AAAAHAAUAAADl/xAAAAAHAAYAAADl/xEAAAAHAAcAAADm/wwAAAAIAAIAAADm/w0AAAAIAAMAAADm/w4AAAAIAAQAAADm/w8AAAAIAAUAAADm/xAAAAAIAAYAAADm/xEAAAAIAAcAAADn/wwAAAAJAAIAAADn/w0AAAAJAAMAAADn/w4AAAAJAAQAAADn/w8AAAAJAAUAAADn/xAAAAAJAAYAAADn/xEAAAAJAAcAAADo/wYAAAAHAAIAAADo/wcAAAAHAAMAAADo/wgAAAAHAAQAAADo/wkAAAAHAAUAAADo/woAAAAHAAYAAADo/wsAAAAHAAcAAADp/wYAAAAIAAIAAADp/wcAAAAIAAMAAADp/wgAAAAIAAQAAADp/wkAAAAIAAUAAADp/woAAAAIAAYAAADp/wsAAAAIAAcAAADq/wYAAAAJAAIAAADq/wcAAAAJAAMAAADq/wgAAAAJAAQAAADq/wkAAAAJAAUAAADq/woAAAAJAAYAAADq/wsAAAAJAAcAAADo/wwAAAAMAAIAAADo/w0AAAAMAAMAAADo/w4AAAAMAAQAAADo/w8AAAAMAAUAAADo/xAAAAAMAAYAAADo/xEAAAAMAAcAAADp/wwAAAANAAIAAADp/w0AAAANAAMAAADp/w4AAAANAAQAAADp/w8AAAANAAUAAADp/xAAAAANAAYAAADp/xEAAAANAAcAAADq/wwAAAAOAAIAAADq/w0AAAAOAAMAAADq/w4AAAAOAAQAAADq/w8AAAAOAAUAAADq/xAAAAAOAAYAAADq/xEAAAAOAAcAAAA=")
+tile_set = ExtResource("3_qx7gl")
