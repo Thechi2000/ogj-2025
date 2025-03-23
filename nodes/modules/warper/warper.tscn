@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b22mhdhvfwwee"]
+
+[ext_resource type="Script" uid="uid://b1arwohi18kyc" path="res://nodes/modules/warper/warper.gd" id="1_c87xt"]
+[ext_resource type="Texture2D" uid="uid://bx0aysdkpd272" path="res://arts/player/head_torso.png" id="2_7m2cn"]
+
+[node name="Warper" type="Node2D" node_paths=PackedStringArray("leftSprite", "rightSprite")]
+script = ExtResource("1_c87xt")
+leftSprite = NodePath("HeadTorso")
+rightSprite = NodePath("HeadTorso")
+
+[node name="HeadTorso" type="Sprite2D" parent="."]
+visibility_layer = 2
+scale = Vector2(0.106919, 0.106919)
+texture = ExtResource("2_7m2cn")
+offset = Vector2(9.35287, -9.35287)
+
+[node name="WindupTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="WindupTimer" to="." method="_on_windup_timer_timeout"]
