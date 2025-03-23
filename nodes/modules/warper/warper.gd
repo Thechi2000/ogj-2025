@@ -1,10 +1,7 @@
 extends CooldownModule
 
-var player: Player
-
 func bind(p, slot):
 	super.bind(p, slot)
-	player = p
 
 func cooldown():
 	return 15

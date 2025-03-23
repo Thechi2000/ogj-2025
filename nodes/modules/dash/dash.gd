@@ -3,12 +3,6 @@ extends CooldownModule
 func cooldown():
 	return 10
 
-var player: Player
-
-func bind(p: Player, is_left_module: bool):
-	super.bind(player, is_left_module)
-	self.player = p
-
 func _use():
 	player.allowed = 0
 

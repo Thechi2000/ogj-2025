@@ -1,12 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://gl6tw62yo4qh"]
 
-[ext_resource type="Script" uid="uid://chi8xacjw8tl5" path="res://nodes/modules/base_module.gd" id="1_f4wyo"]
+[ext_resource type="Script" uid="uid://crw8c5fyjb7ds" path="res://nodes/modules/base_torso/base_torso.gd" id="1_1lcrg"]
 [ext_resource type="Texture2D" uid="uid://bx0aysdkpd272" path="res://arts/player/head_torso.png" id="3_r0gwr"]
 
-[node name="BaseTorso" type="Node2D" node_paths=PackedStringArray("leftSprite", "rightSprite")]
-script = ExtResource("1_f4wyo")
-leftSprite = NodePath("HeadTorso")
-rightSprite = NodePath("HeadTorso")
+[node name="BaseTorso" type="Node2D"]
+script = ExtResource("1_1lcrg")
 metadata/_custom_type_script = "uid://chi8xacjw8tl5"
 
 [node name="HeadTorso" type="Sprite2D" parent="."]
