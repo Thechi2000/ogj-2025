@@ -1,26 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwsuv5q3bjgg4"]
 
 [ext_resource type="Script" uid="uid://dsve04ofksnxs" path="res://nodes/modules/missile_launcher/missile_launcher.gd" id="1_ebyf0"]
-[ext_resource type="Texture2D" uid="uid://8263dyme0i1k" path="res://arts/player/l arm.png" id="2_g6nvv"]
-[ext_resource type="Texture2D" uid="uid://chfda6w6t7pxk" path="res://arts/player/r_arm.png" id="3_k07dx"]
+[ext_resource type="Texture2D" uid="uid://jpixrbtt8gw6" path="res://arts/player/r_atomic.png" id="2_g6nvv"]
+[ext_resource type="Texture2D" uid="uid://bo170unc2tmsc" path="res://arts/player/l_atomic.png" id="3_k07dx"]
 
 [node name="MissileLauncher" type="Node2D" node_paths=PackedStringArray("leftSprite", "rightSprite")]
 script = ExtResource("1_ebyf0")
-leftSprite = NodePath("LArm")
-rightSprite = NodePath("RArm")
+leftSprite = NodePath("LAtomic")
+rightSprite = NodePath("RAtomic")
 
-[node name="LArm" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(-1, 0)
-rotation = -1.25792
-scale = Vector2(0.0979236, 0.0979236)
-texture = ExtResource("2_g6nvv")
-offset = Vector2(44, 101)
-
-[node name="RArm" type="Sprite2D" parent="."]
-visibility_layer = 4
+[node name="RAtomic" type="Sprite2D" parent="."]
 z_index = 1
-rotation = -1.71256
-scale = Vector2(0.0994213, 0.0994213)
+rotation = -1.63035
+scale = Vector2(0.102131, 0.102131)
+texture = ExtResource("2_g6nvv")
+offset = Vector2(-34.6489, 117.095)
+
+[node name="LAtomic" type="Sprite2D" parent="."]
+z_index = -1
+rotation = -0.944176
+scale = Vector2(0.0959404, 0.0959404)
 texture = ExtResource("3_k07dx")
-offset = Vector2(-4, 95)
+offset = Vector2(87, 94)
