@@ -14,12 +14,14 @@ wait_time = 0.5
 one_shot = true
 
 [node name="RDash" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(1.90735e-06, 0)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_wfyya")
 offset = Vector2(1.52588e-05, 230)
 
 [node name="LDash" type="Sprite2D" parent="."]
+z_index = -1
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_f0khi")
 offset = Vector2(-10, 230)

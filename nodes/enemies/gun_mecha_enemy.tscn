@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://jo03aksdca61" path="res://arts/mobs/bad_mech_body.png" id="4_pxryy"]
 
 [node name="BaseEnemy" node_paths=PackedStringArray("weapons") instance=ExtResource("1_v4dw8")]
+scale = Vector2(1.5, 1.5)
 max_health = 45.0
 weapons = [NodePath("ProjectileGun")]
 
