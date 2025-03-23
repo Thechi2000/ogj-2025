@@ -39,11 +39,7 @@ enum AllowedActions {
 @export var invisible = false
 
 func _ready():
-	add_module(ModuleSlot.LeftArm, preload("res://nodes/modules/sword/sword.tscn").instantiate())
-	add_module(ModuleSlot.RightArm, preload("res://nodes/modules/gun/gun.tscn").instantiate())
-	add_module(ModuleSlot.LeftLeg, preload("res://nodes/modules/dash/dash.tscn").instantiate())
-	add_module(ModuleSlot.RightLeg, preload("res://nodes/modules/dash/dash.tscn").instantiate())
-	add_module(ModuleSlot.Body, preload("res://nodes/modules/invisibility/invisibility.tscn").instantiate())
+	pass
 
 func add_module(slot: ModuleSlot, module: Module):
 	modules[slot] = module

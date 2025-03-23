@@ -6,7 +6,6 @@
 
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_4byag"]
 target_nodepath = NodePath("../Target")
-target_maximum_distance = 60.0
 joint_one_bone_idx = 0
 joint_one_bone2d_node = NodePath("TopLeg")
 joint_two_bone_idx = 1
@@ -23,15 +22,12 @@ left_sprite = ExtResource("2_054mj")
 right_sprite = ExtResource("3_vtot3")
 leg_end_path = NodePath("Skeleton2D/TopLeg/BottomLeg/End")
 target_path = NodePath("Target")
-max_distance = 30.0
-rest_position = Vector2(0, 50)
+rest_position = Vector2(0, 1000)
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 modification_stack = SubResource("SkeletonModificationStack2D_umlcv")
 
 [node name="TopLeg" type="Bone2D" parent="Skeleton2D"]
-rotation = 1.41088
-scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(1, 0, 0, 1, 0, 0)
 auto_calculate_length_and_angle = false
 length = 29.07
@@ -67,4 +63,4 @@ position = Vector2(0, 27)
 
 [node name="Target" type="Marker2D" parent="." groups=["ModulePickup"]]
 top_level = true
-position = Vector2(0, 50)
+position = Vector2(0, 70)
