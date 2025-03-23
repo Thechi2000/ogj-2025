@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdsk1jpviwrwg"]
+
+[ext_resource type="Texture2D" uid="uid://cdc3fvyde8ua" path="res://arts/player/l_leg.png" id="2_054mj"]
+[ext_resource type="Texture2D" uid="uid://4kdse73g5rmv" path="res://arts/player/r_leg.png" id="3_vtot3"]
+
+[node name="BaseLegs" type="Node2D"]
+
+[node name="LLeg" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(0.099, 0.099)
+texture = ExtResource("2_054mj")
+offset = Vector2(-1, 199)
+
+[node name="RLeg" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.099, 0.099)
+texture = ExtResource("3_vtot3")
+offset = Vector2(3, 212.017)

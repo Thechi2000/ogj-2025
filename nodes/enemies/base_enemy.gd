@@ -6,22 +6,32 @@ var health := max_health
 @export var movement_speed := 100.0
 
 @onready var navigation_agent := $NavigationAgent2D
-var target : Node2D = null
+var target : Player = null
 
 var weapons : Array[EnemyWeapon] = []
 
-func _ready():
+func _target_player():
 	var players = get_tree().get_nodes_in_group("Player")
-	if not players.is_empty():
-		target = players[0]
+	var visible_players = players.filter(func(p): return !p.invisible)
+	if not visible_players.is_empty():
+		target = visible_players[0]
+
+func _ready():
+	_target_player()
 	weapons.assign(get_children().filter(func(child: Node): return child is EnemyWeapon))
 	navigation_agent.max_speed = movement_speed
+
+func _process(delta: float):
+	if target == null:
+		_target_player()
+	elif target.invisible:
+		target = null
 
 func set_movement_target(movement_target: Vector2):
 	if movement_target.distance_squared_to(navigation_agent.target_position) > 400.0:
 		navigation_agent.target_position = movement_target
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if target != null:
 		set_movement_target(target.global_position)
 		for i in weapons:

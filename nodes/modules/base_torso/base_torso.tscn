@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://gl6tw62yo4qh"]
+
+[ext_resource type="Script" uid="uid://crw8c5fyjb7ds" path="res://nodes/modules/base_torso/base_torso.gd" id="1_1lcrg"]
+[ext_resource type="Texture2D" uid="uid://bx0aysdkpd272" path="res://arts/player/head_torso.png" id="3_r0gwr"]
+
+[node name="BaseTorso" type="Node2D"]
+script = ExtResource("1_1lcrg")
+metadata/_custom_type_script = "uid://chi8xacjw8tl5"
+
+[node name="HeadTorso" type="Sprite2D" parent="."]
+visibility_layer = 2
+scale = Vector2(0.106919, 0.106919)
+texture = ExtResource("3_r0gwr")
+offset = Vector2(9.35287, -9.35287)

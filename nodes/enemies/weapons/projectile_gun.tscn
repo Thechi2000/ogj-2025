@@ -4,6 +4,8 @@
 
 [node name="ProjectileGun" type="Node2D"]
 script = ExtResource("1_70rlw")
+collision_layer = 4
+collision_mask = 17
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 9

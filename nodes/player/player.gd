@@ -34,16 +34,21 @@ enum AllowedActions {
 }
 
 @export_flags("LeftArm","RightArm","LeftLeg","RightLeg","Body","Movement") var allowed = -1
+@export var damage_taken_factor = 1
+
+@export var invisible = false
 
 func _ready():
-	add_module(ModuleSlot.LeftArm, preload("res://nodes/modules/gun/gun.tscn").instantiate())
-	add_module(ModuleSlot.RightArm, preload("res://nodes/modules/missile_launcher/missile_launcher.tscn").instantiate())
+	add_module(ModuleSlot.LeftArm, preload("res://nodes/modules/sword/sword.tscn").instantiate())
+	add_module(ModuleSlot.RightArm, preload("res://nodes/modules/gun/gun.tscn").instantiate())
 	add_module(ModuleSlot.LeftLeg, preload("res://nodes/modules/dash/dash.tscn").instantiate())
+	add_module(ModuleSlot.RightLeg, preload("res://nodes/modules/dash/dash.tscn").instantiate())
+	add_module(ModuleSlot.Body, preload("res://nodes/modules/invisibility/invisibility.tscn").instantiate())
 
 func add_module(slot: ModuleSlot, module: Module):
 	modules[slot] = module
 	module_positions[slot].add_child(module)
-	module.bind(self, slot == ModuleSlot.LeftArm or slot == ModuleSlot.LeftLeg)
+	module.bind(self, slot)
 
 func remove_module(slot: ModuleSlot):
 	if modules.has(slot):
@@ -51,7 +56,7 @@ func remove_module(slot: ModuleSlot):
 		modules[slot].queue_free()
 		modules.erase(slot)
 
-func _process(delta):
+func _process(_delta):
 	if allowed & AllowedActions.Movement != 0:
 		velocity = Vector2.ZERO # The player's movement vector.
 		if Input.is_action_pressed("move_right"):
@@ -79,9 +84,10 @@ func _process(delta):
 func try_use(input, slot, flag):
 	if Input.is_action_pressed(input) and modules.has(slot) && allowed & flag != 0:
 		var mod: Module = modules[slot]
-		mod.look_at(get_global_mouse_position())
+		if slot == ModuleSlot.LeftArm or slot == ModuleSlot.RightArm:
+			mod.look_at(get_global_mouse_position())
 		mod.use()
 
 func update_health(diff):
-	health += diff
+	health += diff * damage_taken_factor
 	hud.set_current_health(health)
