@@ -4,8 +4,8 @@ extends Node2D
 @export var leftSprite : Node2D
 @export var rightSprite : Node2D
 
-var player
-var is_left_module
+var player: Player
+var is_left_module: bool
 
 func bind(player: Player, is_left_module: bool):
 	self.is_left_module = is_left_module

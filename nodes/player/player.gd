@@ -36,12 +36,14 @@ enum AllowedActions {
 @export_flags("LeftArm","RightArm","LeftLeg","RightLeg","Body","Movement") var allowed = -1
 @export var damage_taken_factor = 1
 
+@export var invisible = false
+
 func _ready():
 	add_module(ModuleSlot.LeftArm, preload("res://nodes/modules/sword/sword.tscn").instantiate())
 	add_module(ModuleSlot.RightArm, preload("res://nodes/modules/gun/gun.tscn").instantiate())
 	add_module(ModuleSlot.LeftLeg, preload("res://nodes/modules/dash/dash.tscn").instantiate())
 	add_module(ModuleSlot.RightLeg, preload("res://nodes/modules/dash/dash.tscn").instantiate())
-	add_module(ModuleSlot.Body, preload("res://nodes/modules/base_torso/base_torso.tscn").instantiate())
+	add_module(ModuleSlot.Body, preload("res://nodes/modules/invisibility/invisibility.tscn").instantiate())
 
 func add_module(slot: ModuleSlot, module: Module):
 	modules[slot] = module

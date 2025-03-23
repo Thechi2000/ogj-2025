@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dls0hhi3sk1ci"]
+
+[ext_resource type="Script" uid="uid://ohmjh6y4rffw" path="res://nodes/modules/invisibility/invisibility.gd" id="1_ei8al"]
+[ext_resource type="Texture2D" uid="uid://bx0aysdkpd272" path="res://arts/player/head_torso.png" id="2_ei8al"]
+
+[node name="Invisibility" type="Node2D"]
+script = ExtResource("1_ei8al")
+metadata/_custom_type_script = "uid://bmnd7g8f6hob7"
+
+[node name="HeadTorso" type="Sprite2D" parent="."]
+visibility_layer = 2
+scale = Vector2(0.106919, 0.106919)
+texture = ExtResource("2_ei8al")
+offset = Vector2(9.35287, -9.35287)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

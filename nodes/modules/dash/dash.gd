@@ -3,7 +3,6 @@ extends CooldownModule
 func cooldown():
 	return 10
 
-
 func _use():
 	player.allowed = 0
 
