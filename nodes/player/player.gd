@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-@export var speed = 200 # How fast the player will move (pixels/sec).
+@export var speed = 250 # How fast the player will move (pixels/sec).
 @onready var hud: HUD = $HUD
 
 var modules: Dictionary[ModuleSlot, Module]
@@ -15,6 +15,8 @@ var modules: Dictionary[ModuleSlot, Module]
 
 var max_health = 100
 var health = 100
+var inertia = 3
+var stop = 10
 
 enum ModuleSlot {
 	LeftArm,
@@ -58,20 +60,27 @@ func remove_module(slot: ModuleSlot):
 
 func _process(_delta):
 	if allowed & AllowedActions.Movement != 0:
-		velocity = Vector2.ZERO # The player's movement vector.
+		var new_velocity = Vector2.ZERO # The player's movement vector.
 		if Input.is_action_pressed("move_right"):
-			velocity.x += 1
+			new_velocity.x += 1
 			$AnimatedSprite2D.flip_h = false
 		if Input.is_action_pressed("move_left"):
-			velocity.x -= 1
+			new_velocity.x -= 1
 			$AnimatedSprite2D.flip_h = true
 		if Input.is_action_pressed("move_down"):
-			velocity.y += 1
+			new_velocity.y += 1
 		if Input.is_action_pressed("move_up"):
-			velocity.y -= 1
+			new_velocity.y -= 1
+		inertia -= 1
 
-		if velocity.length() > 0:
-			velocity = velocity.normalized() * speed
+		if (new_velocity.length() > 0) and (velocity.length() <= speed) and (inertia <= 0):
+			velocity += new_velocity.normalized() * speed / 15
+			if inertia == -5:
+				inertia = 4
+		elif velocity.length() >= stop:
+			velocity -= velocity.normalized() * stop
+		else:
+			velocity = Vector2.ZERO
 
 	try_use("use_left_arm_module", ModuleSlot.LeftArm, AllowedActions.ModuleLeftArm)
 	try_use("use_right_arm_module", ModuleSlot.RightArm, AllowedActions.ModuleRightArm)
