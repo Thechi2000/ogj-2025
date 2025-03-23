@@ -21,7 +21,7 @@ func set_movement_target(movement_target: Vector2):
 	if movement_target.distance_squared_to(navigation_agent.target_position) > 400.0:
 		navigation_agent.target_position = movement_target
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if target != null:
 		set_movement_target(target.global_position)
 		for i in weapons:
