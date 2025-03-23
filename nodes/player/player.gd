@@ -48,7 +48,7 @@ func _ready():
 func add_module(slot: ModuleSlot, module: Module):
 	modules[slot] = module
 	module_positions[slot].add_child(module)
-	module.bind(self, slot == ModuleSlot.LeftArm or slot == ModuleSlot.LeftLeg)
+	module.bind(self, slot)
 
 func remove_module(slot: ModuleSlot):
 	if modules.has(slot):

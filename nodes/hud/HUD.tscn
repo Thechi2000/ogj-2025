@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cflojjvvf07hu"]
+[gd_scene load_steps=5 format=3 uid="uid://cflojjvvf07hu"]
 
 [ext_resource type="Script" uid="uid://duy0vwlgrnudf" path="res://nodes/hud/hud.gd" id="1_k5de2"]
+[ext_resource type="PackedScene" uid="uid://drndbrfk6bjmy" path="res://nodes/hud/ability_indicator/ability_indicator.tscn" id="2_kf222"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xyro"]
 bg_color = Color(0.180005, 0.180005, 0.180005, 1)
@@ -35,3 +36,73 @@ theme_override_styles/background = SubResource("StyleBoxFlat_5xyro")
 theme_override_styles/fill = SubResource("StyleBoxFlat_k5de2")
 value = 100.0
 show_percentage = false
+
+[node name="LeftArm" parent="." instance=ExtResource("2_kf222")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -100.0
+offset_right = -160.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+KEYBIND = "M1"
+
+[node name="RightArm" parent="." instance=ExtResource("2_kf222")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -100.0
+offset_right = -60.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+KEYBIND = "M2"
+
+[node name="Body" parent="." instance=ExtResource("2_kf222")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -100.0
+offset_right = 40.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+KEYBIND = "R"
+
+[node name="LeftLeg" parent="." instance=ExtResource("2_kf222")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -100.0
+offset_right = 140.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+KEYBIND = "Q"
+
+[node name="RightLeg" parent="." instance=ExtResource("2_kf222")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 160.0
+offset_top = -100.0
+offset_right = 240.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+KEYBIND = "E"

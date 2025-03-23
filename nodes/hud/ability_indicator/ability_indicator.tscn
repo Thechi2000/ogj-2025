@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://drndbrfk6bjmy"]
+
+[ext_resource type="Script" uid="uid://nwiq2xr5nkkn" path="res://nodes/hud/ability_indicator/ability_indicator.gd" id="1_iaaco"]
+
+[node name="ColorRect" type="ColorRect"]
+z_index = -2
+offset_right = 80.0
+offset_bottom = 80.0
+color = Color(0, 0, 0, 0.709804)
+script = ExtResource("1_iaaco")
+
+[node name="Cooldown" type="Label" parent="."]
+z_index = 2
+offset_top = 5.0
+offset_right = 81.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "15"
+horizontal_alignment = 1
+
+[node name="Keybind" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 1.0
+offset_top = 5.0
+offset_right = 80.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "R"
+horizontal_alignment = 1
