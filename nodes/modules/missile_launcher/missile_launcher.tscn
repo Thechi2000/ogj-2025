@@ -22,3 +22,9 @@ rotation = -0.944176
 scale = Vector2(0.0959404, 0.0959404)
 texture = ExtResource("3_k07dx")
 offset = Vector2(87, 94)
+
+[node name="RCannon" type="Marker2D" parent="."]
+position = Vector2(36, 1)
+
+[node name="LCannon" type="Marker2D" parent="."]
+position = Vector2(35, 0)
