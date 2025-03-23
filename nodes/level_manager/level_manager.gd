@@ -7,12 +7,19 @@ extends Node
 
 @export var levels : Array[PackedScene]
 
+var was_enemies = false
+
 var current_level := 0
 var current_choices : Dictionary[Player.ModuleSlot, Array] = {}
 
 func _ready():
 	current_level = -1
 	next_level()
+
+func _process(delta: float) -> void:
+	if was_enemies and get_tree().get_node_count_in_group("Enemy") == 0:
+		was_enemies = false
+		finish_level()
 
 func finish_level():
 	var modules = get_tree().get_nodes_in_group("ModulePickup")
@@ -35,6 +42,9 @@ func set_choices(selections : Dictionary[Player.ModuleSlot, String]):
 
 func next_level():
 	current_level += 1
+	if current_level >= levels.size():
+		current_level = 0
+	
 	get_tree().change_scene_to_packed(levels[current_level])
 	# Wait two frames for loading
 	await get_tree().process_frame
@@ -47,3 +57,4 @@ func next_level():
 			player.add_module(module, leg_modules[currently_selected[module]].instantiate())
 		else:
 			player.add_module(module, body_modules[currently_selected[module]].instantiate())
+	was_enemies = true

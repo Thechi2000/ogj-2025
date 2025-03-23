@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6vgwkyqxtycx"]
+[gd_scene load_steps=12 format=3 uid="uid://c6vgwkyqxtycx"]
 
 [ext_resource type="Script" uid="uid://d0lbisp0c80gn" path="res://nodes/level_manager/level_manager.gd" id="1_r033g"]
 [ext_resource type="PackedScene" uid="uid://bc1t0mbemebpa" path="res://nodes/modules/gun/gun.tscn" id="2_vtnmd"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dls0hhi3sk1ci" path="res://nodes/modules/invisibility/invisibility.tscn" id="8_rj8ap"]
 [ext_resource type="PackedScene" uid="uid://gl6tw62yo4qh" path="res://nodes/modules/base_torso/base_torso.tscn" id="9_k3lfw"]
 [ext_resource type="PackedScene" uid="uid://brm1sl5rchlcs" path="res://nodes/levels/level1/level1.tscn" id="10_bgeyx"]
+[ext_resource type="PackedScene" uid="uid://bwlpcift63a53" path="res://nodes/levels/level2/level2.tscn" id="11_fwy3t"]
 
 [node name="LevelManager" type="Node2D"]
 script = ExtResource("1_r033g")
@@ -34,4 +35,4 @@ currently_selected = Dictionary[int, String]({
 3: "Base",
 4: "Base"
 })
-levels = Array[PackedScene]([ExtResource("10_bgeyx")])
+levels = Array[PackedScene]([ExtResource("10_bgeyx"), ExtResource("11_fwy3t")])

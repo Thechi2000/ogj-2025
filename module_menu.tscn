@@ -11,7 +11,7 @@
 script = ExtResource("1_3hyjm")
 module_selectors = {
 0: NodePath("LeftArm/SelectModule"),
-1: NodePath("RightLeg/SelectModule"),
+1: NodePath("RightArm/SelectModule"),
 2: NodePath("LeftLeg/SelectModule"),
 3: NodePath("RightLeg/SelectModule"),
 4: NodePath("Body/SelectModule")

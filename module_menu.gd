@@ -17,7 +17,7 @@ func cancel():
 	_exit()
 
 func confirm():
-	var chosen = {}
+	var chosen : Dictionary[Player.ModuleSlot, String] = {}
 	for i in module_selectors:
 		chosen[i] = module_selectors[i].get_item_text(module_selectors[i].selected)
 	
