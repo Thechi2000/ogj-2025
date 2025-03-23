@@ -1,0 +1,189 @@
+[gd_scene load_steps=7 format=3 uid="uid://du5tvos5eclih"]
+
+[ext_resource type="Script" uid="uid://dyhlhdt3vkndc" path="res://module_menu.gd" id="1_3hyjm"]
+[ext_resource type="Texture2D" uid="uid://ci7i7k8kour1o" path="res://arts/tests/bg.png" id="2_u01e6"]
+[ext_resource type="Script" uid="uid://40xw4u7kxlgo" path="res://bg_scroll.gd" id="3_iw80h"]
+[ext_resource type="Texture2D" uid="uid://bn3n2qqsjg80n" path="res://arts/player/menu.png" id="4_731qf"]
+[ext_resource type="PackedScene" uid="uid://b3hp7kivao2pl" path="res://ui/select_module.tscn" id="5_wr23r"]
+[ext_resource type="Theme" uid="uid://lpvdefajyiib" path="res://ui_theme.tres" id="6_tfyqs"]
+
+[node name="Modules" type="CanvasLayer" node_paths=PackedStringArray("module_selectors")]
+script = ExtResource("1_3hyjm")
+module_selectors = {
+0: NodePath("LeftArm/SelectModule"),
+1: NodePath("RightLeg/SelectModule"),
+2: NodePath("LeftLeg/SelectModule"),
+3: NodePath("RightLeg/SelectModule"),
+4: NodePath("Body/SelectModule")
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.0588235)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3840.0
+offset_bottom = 2160.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_u01e6")
+stretch_mode = 1
+script = ExtResource("3_iw80h")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_731qf")
+stretch_mode = 1
+
+[node name="RightArm" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 151.0
+offset_top = 387.0
+offset_right = -1526.0
+offset_bottom = -611.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SelectModule" parent="RightArm" instance=ExtResource("5_wr23r")]
+layout_mode = 2
+
+[node name="Line2D" type="Line2D" parent="RightArm"]
+position = Vector2(-153, 90)
+points = PackedVector2Array(153, 0, 390, 0, 481, -132)
+width = 4.0
+default_color = Color(0.1408, 0.46528, 0.64, 0.517647)
+
+[node name="LeftArm" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1426.0
+offset_top = 393.0
+offset_right = -251.0
+offset_bottom = -605.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SelectModule" parent="LeftArm" instance=ExtResource("5_wr23r")]
+layout_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="LeftArm"]
+position = Vector2(-1428, 90)
+points = PackedVector2Array(1674, 0, 1425, 0, 1328, -88)
+width = 4.0
+default_color = Color(0.1408, 0.46528, 0.64, 0.517647)
+
+[node name="RightLeg" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = 798.0
+offset_right = -1539.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SelectModule" parent="RightLeg" instance=ExtResource("5_wr23r")]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Base"
+popup/item_1/text = "Dash"
+
+[node name="Line2D4" type="Line2D" parent="RightLeg"]
+position = Vector2(-1416, 90)
+points = PackedVector2Array(1468, 0, 1608, 0, 1854, -153)
+width = 4.0
+default_color = Color(0.1408, 0.46528, 0.64, 0.517647)
+
+[node name="LeftLeg" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1420.0
+offset_top = 761.0
+offset_right = -257.0
+offset_bottom = -237.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SelectModule" parent="LeftLeg" instance=ExtResource("5_wr23r")]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Base"
+popup/item_1/text = "Dash"
+
+[node name="Line2D3" type="Line2D" parent="LeftLeg"]
+position = Vector2(-1417, 90)
+points = PackedVector2Array(1471, 0, 1605, 0, 1492, 139)
+width = 4.0
+default_color = Color(0.1408, 0.46528, 0.64, 0.517647)
+
+[node name="Body" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1396.0
+offset_top = 582.0
+offset_right = -281.0
+offset_bottom = -416.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SelectModule" parent="Body" instance=ExtResource("5_wr23r")]
+layout_mode = 2
+theme = ExtResource("6_tfyqs")
+popup/item_0/text = "Base"
+popup/item_1/text = "Warper"
+popup/item_2/text = "Camouflage"
+
+[node name="Line2D4" type="Line2D" parent="Body"]
+position = Vector2(-1417, 90)
+points = PackedVector2Array(1755, 0, 1419, 0, 1183, -285)
+width = 4.0
+default_color = Color(0.1408, 0.46528, 0.64, 0.517647)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -89.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Cancel" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_tfyqs")
+theme_override_font_sizes/font_size = 64
+text = "Cancel"
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Confirm" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_tfyqs")
+theme_override_font_sizes/font_size = 64
+text = "Confirm"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Cancel" to="." method="cancel"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Confirm" to="." method="confirm"]

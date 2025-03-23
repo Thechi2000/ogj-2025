@@ -81,3 +81,7 @@ use_body_module={
 2d_physics/layer_3="Damages Players"
 2d_physics/layer_4="Enemies"
 2d_physics/layer_5="Player"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.162066, 0.162066, 0.162066, 1)

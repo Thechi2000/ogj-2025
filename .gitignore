@@ -2,3 +2,6 @@
 .godot/
 /android/
 test.tscn
+**/*.kra
+**/*.kra~
+**/*.png~
