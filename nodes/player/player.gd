@@ -96,10 +96,9 @@ func update_health(diff):
 	hud.set_current_health(health)
 
 	if health <= 0:
-		var explosion = preload("res://nodes/explosion/explosion.tscn").instantiate()
+		var explosion = preload("res://nodes/nuke/nuke.tscn").instantiate()
 		explosion.global_position = global_position
-		explosion.DAMAGE = 250
-		explosion.scale *= Vector2(5, 5)
+		explosion.scale *= Vector2(2, 2)
 		add_sibling(explosion)
 
 		hide()
