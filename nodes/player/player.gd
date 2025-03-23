@@ -34,6 +34,7 @@ enum AllowedActions {
 }
 
 @export_flags("LeftArm","RightArm","LeftLeg","RightLeg","Body","Movement") var allowed = -1
+@export var damage_taken_factor = 1
 
 func _ready():
 	add_module(ModuleSlot.LeftArm, preload("res://nodes/modules/sword/sword.tscn").instantiate())
@@ -86,5 +87,5 @@ func try_use(input, slot, flag):
 		mod.use()
 
 func update_health(diff):
-	health += diff
+	health += diff * damage_taken_factor
 	hud.set_current_health(health)
