@@ -27,7 +27,7 @@ size = Vector2(50, 200)
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_pja0f")]
-position = Vector2(2, -3)
+position = Vector2(-585, 176)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -109,3 +109,12 @@ shape = SubResource("RectangleShape2D_33h1e")
 [node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D/StaticBody2D/CollisionShape2D2"]
 polygon = PackedVector2Array(-25, -100, 25, -100, 25, 100, -25, 100)
 uv = PackedVector2Array(0, -40, 8.00002, -40, 8.00002, -32, 0, -32)
+
+[node name="BaseEnemy2" parent="." instance=ExtResource("3_xdkkg")]
+position = Vector2(48, -281)
+
+[node name="BaseEnemy3" parent="." instance=ExtResource("3_xdkkg")]
+position = Vector2(642, 221)
+
+[node name="BaseEnemy4" parent="." instance=ExtResource("3_xdkkg")]
+position = Vector2(722, -193)

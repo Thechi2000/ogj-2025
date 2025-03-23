@@ -91,3 +91,11 @@ func try_use(input, slot, flag):
 func update_health(diff):
 	health += diff * damage_taken_factor
 	hud.set_current_health(health)
+	
+	if health <= 0:
+		var explosion = preload("res://nodes/explosion/explosion.tscn").instantiate()
+		explosion.global_position = global_position
+		explosion.DAMAGE = 250
+		explosion.scale *= Vector2(5, 5)
+		add_sibling(explosion)
+		queue_free()
