@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://dyhlhdt3vkndc" path="res://module_menu.gd" id="1_3hyjm"]
 [ext_resource type="Texture2D" uid="uid://ci7i7k8kour1o" path="res://arts/tests/bg.png" id="2_u01e6"]
 [ext_resource type="Script" uid="uid://40xw4u7kxlgo" path="res://bg_scroll.gd" id="3_iw80h"]
-[ext_resource type="Texture2D" uid="uid://bn3n2qqsjg80n" path="res://arts/player/menu.png" id="4_731qf"]
+[ext_resource type="Texture2D" uid="uid://ciyc12q7r4k02" path="res://arts/player/menu.png" id="4_731qf"]
 [ext_resource type="PackedScene" uid="uid://b3hp7kivao2pl" path="res://ui/select_module.tscn" id="5_wr23r"]
-[ext_resource type="Theme" uid="uid://lpvdefajyiib" path="res://ui_theme.tres" id="6_tfyqs"]
+[ext_resource type="Theme" uid="uid://b1frbvtjlg0q5" path="res://ui_theme.tres" id="6_tfyqs"]
 
 [node name="Modules" type="CanvasLayer" node_paths=PackedStringArray("module_selectors")]
 script = ExtResource("1_3hyjm")

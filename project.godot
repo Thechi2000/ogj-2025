@@ -15,6 +15,10 @@ run/main_scene="uid://brm1sl5rchlcs"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+LevelManager="*res://nodes/level_manager/LevelManager.tscn"
+
 [display]
 
 window/size/viewport_width=1920
@@ -25,6 +29,7 @@ window/stretch/mode="canvas_items"
 
 Enemy="Is an enemy and must be eliminated for the room to be completed"
 Player="Is the player"
+ModulePickup="A module that can be picked up"
 
 [input]
 

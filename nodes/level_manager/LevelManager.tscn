@@ -1,0 +1,37 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6vgwkyqxtycx"]
+
+[ext_resource type="Script" uid="uid://d0lbisp0c80gn" path="res://nodes/level_manager/level_manager.gd" id="1_r033g"]
+[ext_resource type="PackedScene" uid="uid://bc1t0mbemebpa" path="res://nodes/modules/gun/gun.tscn" id="2_vtnmd"]
+[ext_resource type="PackedScene" uid="uid://cxb64hql8b5qy" path="res://nodes/modules/sword/sword.tscn" id="3_bgeyx"]
+[ext_resource type="PackedScene" uid="uid://dwsuv5q3bjgg4" path="res://nodes/modules/missile_launcher/missile_launcher.tscn" id="4_fwy3t"]
+[ext_resource type="PackedScene" uid="uid://e5ae2ctqhwgr" path="res://nodes/modules/dash/dash.tscn" id="5_ex56k"]
+[ext_resource type="PackedScene" uid="uid://cdsk1jpviwrwg" path="res://nodes/modules/base_legs/base_legs.tscn" id="6_gcwyi"]
+[ext_resource type="PackedScene" uid="uid://b22mhdhvfwwee" path="res://nodes/modules/warper/warper.tscn" id="7_478le"]
+[ext_resource type="PackedScene" uid="uid://dls0hhi3sk1ci" path="res://nodes/modules/invisibility/invisibility.tscn" id="8_rj8ap"]
+[ext_resource type="PackedScene" uid="uid://gl6tw62yo4qh" path="res://nodes/modules/base_torso/base_torso.tscn" id="9_k3lfw"]
+[ext_resource type="PackedScene" uid="uid://brm1sl5rchlcs" path="res://nodes/levels/level1/level1.tscn" id="10_bgeyx"]
+
+[node name="LevelManager" type="Node2D"]
+script = ExtResource("1_r033g")
+arm_modules = Dictionary[String, PackedScene]({
+"Gun": ExtResource("2_vtnmd"),
+"Missile": ExtResource("4_fwy3t"),
+"Sword": ExtResource("3_bgeyx")
+})
+leg_modules = Dictionary[String, PackedScene]({
+"Base": ExtResource("6_gcwyi"),
+"Dash": ExtResource("5_ex56k")
+})
+body_modules = Dictionary[String, PackedScene]({
+"Base": ExtResource("9_k3lfw"),
+"Camouflage": ExtResource("8_rj8ap"),
+"Warper": ExtResource("7_478le")
+})
+currently_selected = Dictionary[int, String]({
+0: "Gun",
+1: "Gun",
+2: "Base",
+3: "Base",
+4: "Base"
+})
+levels = Array[PackedScene]([ExtResource("10_bgeyx")])

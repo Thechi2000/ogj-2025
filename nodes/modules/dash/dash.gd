@@ -1,4 +1,4 @@
-extends CooldownModule
+extends AnimatedLeg
 
 func cooldown():
 	return 10

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dellsgextc3dd"]
+
+[ext_resource type="Script" uid="uid://bodpkexfigxru" path="res://nodes/pickups/pickup_module.gd" id="1_fgo1b"]
+
+[node name="PickupModule" type="Sprite2D" groups=["ModulePickup"]]
+script = ExtResource("1_fgo1b")
