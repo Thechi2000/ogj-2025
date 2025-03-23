@@ -12,7 +12,7 @@ func cooldown():
 func _use():
 	var new_projectile = preload("res://nodes/projectile/projectile.tscn").instantiate()
 	new_projectile.DAMAGE = DAMAGE
-	new_projectile.direction = FIRING_DIR.rotated(self.rotation)
+	new_projectile.direction = FIRING_DIR.rotated(self.rotation) * 3.5
 	new_projectile.rotation = self.global_rotation
 	new_projectile.position = $LCannon.global_position if is_left_module else $RCannon.global_position
 	new_projectile.collision_layer = collision_layer
