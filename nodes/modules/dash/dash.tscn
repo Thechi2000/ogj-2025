@@ -1,29 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://e5ae2ctqhwgr"]
+[gd_scene load_steps=5 format=3 uid="uid://e5ae2ctqhwgr"]
 
 [ext_resource type="Script" uid="uid://yxvjotr4st4e" path="res://nodes/modules/dash/dash.gd" id="1_uooqy"]
 [ext_resource type="Texture2D" uid="uid://d0j74nxc1udfx" path="res://arts/player/r_dash.png" id="2_wfyya"]
 [ext_resource type="Texture2D" uid="uid://nugeane7ov4l" path="res://arts/player/l_dash.png" id="3_f0khi"]
+[ext_resource type="PackedScene" uid="uid://cdsk1jpviwrwg" path="res://nodes/modules/base_legs/base_legs.tscn" id="4_f0khi"]
 
-[node name="Dash" type="Node2D" node_paths=PackedStringArray("leftSprite", "rightSprite")]
+[node name="Dash" type="Node2D"]
 script = ExtResource("1_uooqy")
-leftSprite = NodePath("LDash")
-rightSprite = NodePath("RDash")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
 
-[node name="RDash" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(1.90735e-06, 0)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_wfyya")
-offset = Vector2(1.52588e-05, 230)
-
-[node name="LDash" type="Sprite2D" parent="."]
-z_index = -1
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_f0khi")
-offset = Vector2(-10, 230)
+[node name="BaseLegs" parent="." instance=ExtResource("4_f0khi")]
+left_sprite = ExtResource("3_f0khi")
+right_sprite = ExtResource("2_wfyya")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

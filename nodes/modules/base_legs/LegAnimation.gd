@@ -4,10 +4,20 @@ extends CooldownModule
 @export var left_sprite : Texture
 @export var right_sprite : Texture
 
-@export var leg_end : Node2D
-@export var target : Node2D
+@export var leg_end_path : NodePath
+@export var target_path : NodePath
 @export var max_distance : float
 @export var rest_position : Vector2
+
+@onready var leg_end = get_node(leg_end_path)
+@onready var target = get_node(target_path)
+
+func bind(player: Player, slot: Player.ModuleSlot):
+	super(player, slot)
+	if not self.is_ready():
+		await self.ready
+	$Skeleton2D/TopLeg/TopLegSprite.texture = left_sprite if self.is_left_module else right_sprite
+	$Skeleton2D/TopLeg/BottomLeg/BottomLegSprite.texture = left_sprite if self.is_left_module else right_sprite
 
 func _physics_process(delta: float) -> void:
 	if target.global_position.distance_squared_to(leg_end.global_position) >= max_distance*max_distance:

@@ -17,19 +17,14 @@ enabled = true
 modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_4byag")
 
-[node name="BaseLegs" type="Node2D" node_paths=PackedStringArray("leg_end", "target")]
+[node name="BaseLegs" type="Node2D"]
 script = ExtResource("1_umlcv")
-leg_end = NodePath("Skeleton2D/TopLeg/BottomLeg/End")
-target = NodePath("Target")
+left_sprite = ExtResource("2_054mj")
+right_sprite = ExtResource("3_vtot3")
+leg_end_path = NodePath("Skeleton2D/TopLeg/BottomLeg/End")
+target_path = NodePath("Target")
 max_distance = 30.0
 rest_position = Vector2(0, 50)
-
-[node name="RLeg" type="Sprite2D" parent="."]
-visible = false
-z_index = 1
-scale = Vector2(0.099, 0.099)
-texture = ExtResource("3_vtot3")
-offset = Vector2(3, 212.017)
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 modification_stack = SubResource("SkeletonModificationStack2D_umlcv")
@@ -43,7 +38,7 @@ length = 29.07
 bone_angle = 90.0
 metadata/_local_pose_override_enabled_ = true
 
-[node name="LLeg" type="Sprite2D" parent="Skeleton2D/TopLeg"]
+[node name="TopLegSprite" type="Sprite2D" parent="Skeleton2D/TopLeg"]
 z_index = -1
 scale = Vector2(0.099, 0.099)
 texture = ExtResource("2_054mj")
@@ -59,7 +54,7 @@ length = 24.0
 bone_angle = 90.0
 metadata/_local_pose_override_enabled_ = true
 
-[node name="LLeg2" type="Sprite2D" parent="Skeleton2D/TopLeg/BottomLeg"]
+[node name="BottomLegSprite" type="Sprite2D" parent="Skeleton2D/TopLeg/BottomLeg"]
 z_index = -1
 scale = Vector2(0.099, 0.099)
 texture = ExtResource("2_054mj")
