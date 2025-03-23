@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dfq3geavop2pb" path="res://nodes/enemies/weapons/rocket/projectile_gun.tscn" id="2_0vcgw"]
 [ext_resource type="Texture2D" uid="uid://2b5ad5hbslxm" path="res://arts/Tank.png" id="2_ufdty"]
 
-[node name="BaseEnemy" node_paths=PackedStringArray("weapons") instance=ExtResource("1_2pkei")]
+[node name="BaseEnemy2" node_paths=PackedStringArray("weapons") instance=ExtResource("1_2pkei")]
 max_health = 20.0
 movement_speed = 70.0
 weapons = [NodePath("ProjectileGun")]

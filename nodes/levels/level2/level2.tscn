@@ -108,14 +108,18 @@ shape = SubResource("RectangleShape2D_jx2xh")
 position = Vector2(752.25, -50.5)
 shape = SubResource("RectangleShape2D_01j47")
 
-[node name="BaseEnemy" parent="." instance=ExtResource("3_3sucv")]
+[node name="BaseEnemy" parent="." node_paths=PackedStringArray("weapons") instance=ExtResource("3_3sucv")]
 position = Vector2(-803, 118)
+weapons = []
 
-[node name="BaseEnemy2" parent="." instance=ExtResource("3_3sucv")]
+[node name="BaseEnemy2" parent="." node_paths=PackedStringArray("weapons") instance=ExtResource("3_3sucv")]
 position = Vector2(914, -423)
+weapons = []
 
-[node name="BaseEnemy3" parent="." instance=ExtResource("4_jqc8v")]
+[node name="BaseEnemy3" parent="." node_paths=PackedStringArray("weapons") instance=ExtResource("4_jqc8v")]
 position = Vector2(800, 437)
+weapons = []
 
-[node name="BaseEnemy4" parent="." instance=ExtResource("4_jqc8v")]
+[node name="BaseEnemy4" parent="." node_paths=PackedStringArray("weapons") instance=ExtResource("4_jqc8v")]
 position = Vector2(635, 437)
+weapons = []
