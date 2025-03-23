@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://kqu242sgl7ep"]
+
+[ext_resource type="PackedScene" uid="uid://8m7ih7i2ayw5" path="res://nodes/enemies/base_enemy.tscn" id="1_2ejf0"]
+[ext_resource type="Texture2D" uid="uid://c5eu2u4romtij" path="res://arts/mobs/bad_mech_zooka_body.png" id="2_ku5hr"]
+[ext_resource type="Texture2D" uid="uid://dv6eiqanmawqy" path="res://arts/mobs/bazooka_arm.png" id="3_cjxve"]
+[ext_resource type="PackedScene" uid="uid://7e08jf7bx8ky" path="res://nodes/enemies/weapons/gun/rocket_launcher.tscn" id="4_ar4wq"]
+
+[node name="BaseEnemy" node_paths=PackedStringArray("weapons") instance=ExtResource("1_2ejf0")]
+scale = Vector2(1.5, 1.5)
+weapons = [NodePath("RocketLauncher")]
+
+[node name="BadMechZookaBody" type="Sprite2D" parent="." index="2"]
+z_index = 1
+position = Vector2(0.957076, 1.59166)
+scale = Vector2(0.117719, 0.117719)
+texture = ExtResource("2_ku5hr")
+
+[node name="BazookaArm" type="Sprite2D" parent="." index="3"]
+position = Vector2(-9, -18)
+rotation = 0.338911
+scale = Vector2(0.117719, 0.117719)
+texture = ExtResource("3_cjxve")
+offset = Vector2(-44, 82)
+
+[node name="RocketLauncher" parent="." index="4" instance=ExtResource("4_ar4wq")]

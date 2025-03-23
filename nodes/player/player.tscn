@@ -20,6 +20,7 @@ radius = 22.0
 height = 80.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+scale = Vector2(1.5, 1.5)
 collision_layer = 16
 collision_mask = 5
 motion_mode = 1
@@ -37,10 +38,10 @@ shape = SubResource("CapsuleShape2D_khfle")
 [node name="HUD" parent="." instance=ExtResource("3_fn53c")]
 
 [node name="LeftLeg" type="Marker2D" parent="."]
-position = Vector2(6, 7)
+position = Vector2(12, 6.66667)
 
 [node name="RightLeg" type="Marker2D" parent="."]
-position = Vector2(-8, 7)
+position = Vector2(-7.33333, 6.66667)
 
 [node name="LeftArm" type="Marker2D" parent="."]
 position = Vector2(7, -18)

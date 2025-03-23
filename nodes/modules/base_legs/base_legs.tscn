@@ -1,18 +1,66 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdsk1jpviwrwg"]
+[gd_scene load_steps=6 format=3 uid="uid://cdsk1jpviwrwg"]
 
+[ext_resource type="Script" uid="uid://cwdige20jq880" path="res://nodes/modules/base_legs/LegAnimation.gd" id="1_umlcv"]
 [ext_resource type="Texture2D" uid="uid://cdc3fvyde8ua" path="res://arts/player/l_leg.png" id="2_054mj"]
 [ext_resource type="Texture2D" uid="uid://4kdse73g5rmv" path="res://arts/player/r_leg.png" id="3_vtot3"]
 
-[node name="BaseLegs" type="Node2D"]
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_4byag"]
+target_nodepath = NodePath("../Target")
+joint_one_bone_idx = 0
+joint_one_bone2d_node = NodePath("TopLeg")
+joint_two_bone_idx = 1
+joint_two_bone2d_node = NodePath("TopLeg/BottomLeg")
 
-[node name="LLeg" type="Sprite2D" parent="."]
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_umlcv"]
+enabled = true
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_4byag")
+
+[node name="BaseLegs" type="Node2D"]
+script = ExtResource("1_umlcv")
+left_sprite = ExtResource("2_054mj")
+right_sprite = ExtResource("3_vtot3")
+leg_end_path = NodePath("Skeleton2D/TopLeg/BottomLeg/End")
+target_path = NodePath("Target")
+rest_position = Vector2(0, 1000)
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+modification_stack = SubResource("SkeletonModificationStack2D_umlcv")
+
+[node name="TopLeg" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+auto_calculate_length_and_angle = false
+length = 29.07
+bone_angle = 90.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="TopLegSprite" type="Sprite2D" parent="Skeleton2D/TopLeg"]
 z_index = -1
 scale = Vector2(0.099, 0.099)
 texture = ExtResource("2_054mj")
-offset = Vector2(-1, 199)
+offset = Vector2(-1, 148.495)
+region_enabled = true
+region_rect = Rect2(0, 0, 125, 294.561)
 
-[node name="RLeg" type="Sprite2D" parent="."]
-z_index = 1
+[node name="BottomLeg" type="Bone2D" parent="Skeleton2D/TopLeg"]
+position = Vector2(-0.01, 29.07)
+rest = Transform2D(1, 0, 0, 1, -0.01, 29.07)
+auto_calculate_length_and_angle = false
+length = 24.0
+bone_angle = 90.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="BottomLegSprite" type="Sprite2D" parent="Skeleton2D/TopLeg/BottomLeg"]
+z_index = -1
 scale = Vector2(0.099, 0.099)
-texture = ExtResource("3_vtot3")
-offset = Vector2(3, 212.017)
+texture = ExtResource("2_054mj")
+offset = Vector2(0, 141.414)
+region_enabled = true
+region_rect = Rect2(0, 286.053, 125, 296.947)
+
+[node name="End" type="Marker2D" parent="Skeleton2D/TopLeg/BottomLeg"]
+position = Vector2(0, 27)
+
+[node name="Target" type="Marker2D" parent="." groups=["ModulePickup"]]
+top_level = true
+position = Vector2(0, 70)

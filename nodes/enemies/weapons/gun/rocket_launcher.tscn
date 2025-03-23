@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://7e08jf7bx8ky"]
+
+[ext_resource type="Script" uid="uid://bpwdgych74qo1" path="res://nodes/enemies/weapons/gun/rocket_launcher.gd" id="1_ie6ga"]
+
+[node name="RocketLauncher" type="Node2D"]
+script = ExtResource("1_ie6ga")
+collision_layer = 4
+collision_mask = 17
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 9

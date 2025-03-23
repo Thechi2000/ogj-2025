@@ -384,7 +384,6 @@ texture = ExtResource("1_2hm1g")
 9:17/0 = 0
 13:17/0 = 0
 14:17/0 = 0
-18:17/0 = 0
 19:17/0 = 0
 20:17/0 = 0
 23:17/0 = 0
@@ -657,6 +656,7 @@ texture = ExtResource("1_2hm1g")
 5:56/0 = 0
 7:56/0 = 0
 9:56/0 = 0
+18:17/0 = 0
 
 [resource]
 sources/0 = SubResource("TileSetAtlasSource_h2dvu")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cup73tdmn5mfp"]
+
+[ext_resource type="PackedScene" uid="uid://8m7ih7i2ayw5" path="res://nodes/enemies/base_enemy.tscn" id="1_v4dw8"]
+[ext_resource type="PackedScene" uid="uid://dfq3geavop2pb" path="res://nodes/enemies/weapons/rocket/projectile_gun.tscn" id="2_44xfs"]
+[ext_resource type="Texture2D" uid="uid://bpnskpkg1dcoe" path="res://arts/mobs/bad_mech_arm.png" id="3_7onql"]
+[ext_resource type="Texture2D" uid="uid://jo03aksdca61" path="res://arts/mobs/bad_mech_body.png" id="4_pxryy"]
+
+[node name="BaseEnemy" node_paths=PackedStringArray("weapons") instance=ExtResource("1_v4dw8")]
+scale = Vector2(1.5, 1.5)
+max_health = 45.0
+weapons = [NodePath("ProjectileGun")]
+
+[node name="ProjectileGun" parent="." index="2" instance=ExtResource("2_44xfs")]
+position = Vector2(1, 2)
+scale = Vector2(0.115415, 0.115415)
+
+[node name="BadMechArm" type="Sprite2D" parent="." index="3"]
+position = Vector2(-11, -16)
+rotation = 0.539576
+scale = Vector2(0.14205, 0.14205)
+texture = ExtResource("3_7onql")
+offset = Vector2(-6.96552, 66.1724)
+
+[node name="BadMechBody" type="Sprite2D" parent="." index="4"]
+position = Vector2(1, 2)
+scale = Vector2(0.115415, 0.115415)
+texture = ExtResource("4_pxryy")

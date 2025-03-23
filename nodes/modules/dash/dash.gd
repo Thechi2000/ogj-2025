@@ -3,6 +3,12 @@ extends CooldownModule
 func cooldown():
 	return 10
 
+func bind(player: Player, slot: Player.ModuleSlot):
+	super(player, slot)
+	if not self.is_ready():
+		await self.ready
+	$BaseLegs.bind(player, slot)
+
 func _use():
 	player.allowed = 0
 
