@@ -1,3 +1,4 @@
+class_name BaseEnemy
 extends CharacterBody2D
 
 @export var max_health := 40.0
@@ -8,7 +9,7 @@ var health := max_health
 @onready var navigation_agent := $NavigationAgent2D
 var target : Player = null
 
-var weapons : Array[EnemyWeapon] = []
+@export var weapons : Array[EnemyWeapon]
 
 func _target_player():
 	var players = get_tree().get_nodes_in_group("Player")
@@ -18,7 +19,6 @@ func _target_player():
 
 func _ready():
 	_target_player()
-	weapons.assign(get_children().filter(func(child: Node): return child is EnemyWeapon))
 	navigation_agent.max_speed = movement_speed
 
 func _process(delta: float):

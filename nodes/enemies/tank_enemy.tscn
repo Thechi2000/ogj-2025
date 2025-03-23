@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsvvqwho1f6fs"]
+
+[ext_resource type="PackedScene" uid="uid://8m7ih7i2ayw5" path="res://nodes/enemies/base_enemy.tscn" id="1_2pkei"]
+[ext_resource type="PackedScene" uid="uid://dfq3geavop2pb" path="res://nodes/enemies/weapons/rocket/projectile_gun.tscn" id="2_0vcgw"]
+[ext_resource type="Texture2D" uid="uid://2b5ad5hbslxm" path="res://arts/Tank.png" id="2_ufdty"]
+
+[node name="BaseEnemy" node_paths=PackedStringArray("weapons") instance=ExtResource("1_2pkei")]
+max_health = 20.0
+movement_speed = 70.0
+weapons = [NodePath("ProjectileGun")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+rotation = 1.5708
+
+[node name="ProjectileGun" parent="." index="2" instance=ExtResource("2_0vcgw")]
+
+[node name="Tank" type="Sprite2D" parent="." index="3"]
+position = Vector2(4.76837e-07, -1)
+scale = Vector2(0.101636, 0.101636)
+texture = ExtResource("2_ufdty")
+offset = Vector2(-59, -1)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfq3geavop2pb"]
+
+[ext_resource type="Script" uid="uid://dq3iapdjubr5c" path="res://nodes/enemies/weapons/rocket/projectile_gun.gd" id="1_jqktg"]
+
+[node name="ProjectileGun" type="Node2D"]
+script = ExtResource("1_jqktg")
+collision_layer = 4
+collision_mask = 17
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 9
