@@ -18,4 +18,3 @@ shape = SubResource("CapsuleShape2D_5vvoh")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 151.4
-debug_enabled = true

@@ -11,6 +11,25 @@ var target : Player = null
 
 @export var weapons : Array[EnemyWeapon]
 
+var drops = [
+	[Player.ModuleSlot.LeftArm, "Gun"],
+	[Player.ModuleSlot.RightArm, "Gun"],
+	[Player.ModuleSlot.LeftArm, "Missile"],
+	[Player.ModuleSlot.RightArm, "Missile"],
+	[Player.ModuleSlot.LeftArm, "Sword"],
+	[Player.ModuleSlot.RightArm, "Sword"],
+	
+	[Player.ModuleSlot.LeftLeg, "Base"],
+	[Player.ModuleSlot.RightLeg, "Base"],
+	[Player.ModuleSlot.LeftLeg, "Dash"],
+	[Player.ModuleSlot.RightLeg, "Dash"],
+	
+	
+	[Player.ModuleSlot.Body, "Base"],
+	[Player.ModuleSlot.Body, "Warper"],
+	[Player.ModuleSlot.Body, "Camouflage"],
+]
+
 func _target_player():
 	var players = get_tree().get_nodes_in_group("Player")
 	var visible_players = players.filter(func(p): return !p.invisible)
@@ -57,4 +76,17 @@ func update_health(diff):
 		explosion.global_position = global_position
 		explosion.DAMAGE = 0
 		add_sibling(explosion)
+
+		if randi() % 3 > 0:
+			var selected_drop = drops[randi() % drops.size()]
+
+			var drop = preload("res://nodes/pickups/pickup_module.tscn").instantiate()
+			drop.module = selected_drop[0]
+			drop.module_name = selected_drop[1]
+			drop.global_position = global_position
+			
+			add_sibling(drop)
+			drop.texture = preload("res://arts/mobs/bad_mech_arm.png")
+			drop.scale = Vector2(0.2, 0.2)
+
 		queue_free()
