@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://brm1sl5rchlcs"]
+[gd_scene load_steps=13 format=4 uid="uid://brm1sl5rchlcs"]
 
 [ext_resource type="PackedScene" uid="uid://dn14ksjaxt3c0" path="res://nodes/player/player.tscn" id="1_pja0f"]
 [ext_resource type="PackedScene" uid="uid://cup73tdmn5mfp" path="res://nodes/enemies/gun_mecha_enemy.tscn" id="3_7d5jq"]
 [ext_resource type="TileSet" uid="uid://dxsqnhdb1ilum" path="res://nodes/tiles/tileset.tres" id="3_qx7gl"]
 [ext_resource type="PackedScene" uid="uid://kqu242sgl7ep" path="res://nodes/enemies/rocket_mecha_enemy.tscn" id="4_33h1e"]
 [ext_resource type="PackedScene" uid="uid://dsvvqwho1f6fs" path="res://nodes/enemies/tank_enemy.tscn" id="5_lbw0g"]
+[ext_resource type="AudioStream" uid="uid://deeicq8cfkgd2" path="res://music/title/ATOMIC_title_loop.wav" id="6_33h1e"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eavc5"]
 vertices = PackedVector2Array(1205, 785, 1953, 910, -1713, 910, -1205, 785, -1713, -914, -1205, -785, 1953, -914, 1205, -785, 915, -495, 915, 495, 845, 70, 845, -70, 470, 345, -915, 495, 330, 345, -330, 345, -470, 345, 555, 70, 470, 55, 470, -55, 470, -345, 555, -70, 330, -55, -555, 70, -555, -70, -470, 55, 330, -345, -330, -55, -330, -345, 330, 55, -330, 55, -470, -55, -470, -345, -845, 70, -915, -495, -845, -70)
@@ -133,3 +134,7 @@ position = Vector2(571, 241)
 
 [node name="BaseEnemy4" parent="." instance=ExtResource("5_lbw0g")]
 position = Vector2(569, 99)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_33h1e")
+autoplay = true
