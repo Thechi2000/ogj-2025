@@ -5,8 +5,8 @@ func cooldown():
 
 var player: Player
 
-func bind(player: Player):
-	super.bind(player)
+func bind(player: Player, is_left_module: bool):
+	super.bind(player, is_left_module)
 	self.player = player
 
 func _use():
