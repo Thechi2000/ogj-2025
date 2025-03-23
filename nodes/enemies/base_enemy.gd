@@ -47,6 +47,14 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func update_health(diff):
-	health += diff
 	if health <= 0:
+		return
+	
+	health += diff
+
+	if health <= 0:
+		var explosion = preload("res://nodes/explosion/explosion.tscn").instantiate()
+		explosion.global_position = global_position
+		explosion.DAMAGE = 0
+		add_sibling(explosion)
 		queue_free()

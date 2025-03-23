@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bka2pfkur3v8l"
-path="res://.godot/imported/start_button.png-dd5ce7ca8f108a725910091a7bb0c678.ctex"
+uid="uid://2b5ad5hbslxm"
+path="res://.godot/imported/Tank.png-bcd15543a7d9ac4fbbbeaee1fc23eb69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/start_button.png"
-dest_files=["res://.godot/imported/start_button.png-dd5ce7ca8f108a725910091a7bb0c678.ctex"]
+source_file="res://arts/Tank.png"
+dest_files=["res://.godot/imported/Tank.png-bcd15543a7d9ac4fbbbeaee1fc23eb69.ctex"]
 
 [params]
 

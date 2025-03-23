@@ -89,5 +89,20 @@ func try_use(input, slot, flag):
 		mod.use()
 
 func update_health(diff):
+	if health <= 0:
+		return
+	
 	health += diff * damage_taken_factor
 	hud.set_current_health(health)
+
+	if health <= 0:
+		var explosion = preload("res://nodes/nuke/nuke.tscn").instantiate()
+		explosion.global_position = global_position
+		explosion.scale *= Vector2(2, 2)
+		add_sibling(explosion)
+
+		hide()
+		allowed = 0
+		invisible = true
+
+		get_tree().create_timer(3.0).timeout.connect(func(): get_tree().change_scene_to_file("res://nodes/game_over/game_over.tscn"))

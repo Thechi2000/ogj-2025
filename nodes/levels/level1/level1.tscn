@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://brm1sl5rchlcs"]
+[gd_scene load_steps=10 format=4 uid="uid://brm1sl5rchlcs"]
 
 [ext_resource type="PackedScene" uid="uid://dn14ksjaxt3c0" path="res://nodes/player/player.tscn" id="1_pja0f"]
+[ext_resource type="TileSet" uid="uid://dxsqnhdb1ilum" path="res://nodes/tiles/tileset.tres" id="3_qx7gl"]
 [ext_resource type="PackedScene" uid="uid://8m7ih7i2ayw5" path="res://nodes/enemies/base_enemy.tscn" id="3_xdkkg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eavc5"]
@@ -27,7 +28,7 @@ size = Vector2(50, 200)
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_pja0f")]
-position = Vector2(2, -3)
+position = Vector2(-585, 176)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -109,3 +110,16 @@ shape = SubResource("RectangleShape2D_33h1e")
 [node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D/StaticBody2D/CollisionShape2D2"]
 polygon = PackedVector2Array(-25, -100, 25, -100, 25, 100, -25, 100)
 uv = PackedVector2Array(0, -40, 8.00002, -40, 8.00002, -32, 0, -32)
+
+[node name="BaseEnemy2" parent="." instance=ExtResource("3_xdkkg")]
+position = Vector2(48, -281)
+
+[node name="BaseEnemy3" parent="." instance=ExtResource("3_xdkkg")]
+position = Vector2(642, 221)
+
+[node name="BaseEnemy4" parent="." instance=ExtResource("3_xdkkg")]
+position = Vector2(722, -193)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AADl/wYAAAACAAIAAADl/wcAAAACAAMAAADl/wgAAAACAAQAAADl/wkAAAACAAUAAADl/woAAAACAAYAAADl/wsAAAACAAcAAADm/wYAAAADAAIAAADm/wcAAAADAAMAAADm/wgAAAADAAQAAADm/wkAAAADAAUAAADm/woAAAADAAYAAADm/wsAAAADAAcAAADn/wYAAAAEAAIAAADn/wcAAAAEAAMAAADn/wgAAAAEAAQAAADn/wkAAAAEAAUAAADn/woAAAAEAAYAAADn/wsAAAAEAAcAAADl/wwAAAAHAAIAAADl/w0AAAAHAAMAAADl/w4AAAAHAAQAAADl/w8AAAAHAAUAAADl/xAAAAAHAAYAAADl/xEAAAAHAAcAAADm/wwAAAAIAAIAAADm/w0AAAAIAAMAAADm/w4AAAAIAAQAAADm/w8AAAAIAAUAAADm/xAAAAAIAAYAAADm/xEAAAAIAAcAAADn/wwAAAAJAAIAAADn/w0AAAAJAAMAAADn/w4AAAAJAAQAAADn/w8AAAAJAAUAAADn/xAAAAAJAAYAAADn/xEAAAAJAAcAAADo/wYAAAAHAAIAAADo/wcAAAAHAAMAAADo/wgAAAAHAAQAAADo/wkAAAAHAAUAAADo/woAAAAHAAYAAADo/wsAAAAHAAcAAADp/wYAAAAIAAIAAADp/wcAAAAIAAMAAADp/wgAAAAIAAQAAADp/wkAAAAIAAUAAADp/woAAAAIAAYAAADp/wsAAAAIAAcAAADq/wYAAAAJAAIAAADq/wcAAAAJAAMAAADq/wgAAAAJAAQAAADq/wkAAAAJAAUAAADq/woAAAAJAAYAAADq/wsAAAAJAAcAAADo/wwAAAAMAAIAAADo/w0AAAAMAAMAAADo/w4AAAAMAAQAAADo/w8AAAAMAAUAAADo/xAAAAAMAAYAAADo/xEAAAAMAAcAAADp/wwAAAANAAIAAADp/w0AAAANAAMAAADp/w4AAAANAAQAAADp/w8AAAANAAUAAADp/xAAAAANAAYAAADp/xEAAAANAAcAAADq/wwAAAAOAAIAAADq/w0AAAAOAAMAAADq/w4AAAAOAAQAAADq/w8AAAAOAAUAAADq/xAAAAAOAAYAAADq/xEAAAAOAAcAAAA=")
+tile_set = ExtResource("3_qx7gl")
